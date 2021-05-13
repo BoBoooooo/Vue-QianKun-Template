@@ -1,28 +1,13 @@
-# Vue-QianKun-Template
+# Vue-Qiankun-Template
 
-需要独立启动主应用和子应用
+# Start
 
-通过 http://localhost:8080访问
-
-## Project setup
-```
+``` javascript
 npm install
+npm start
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+http://localhost:8080
+# Doc
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[微前端qiankun从搭建到部署的实践](https://juejin.im/post/6875462470593904653)
