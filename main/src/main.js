@@ -1,13 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { registerMicroApps, start, setDefaultMountApp } from 'qiankun'
+import { registerMicroApps, start } from 'qiankun'
 import microApps from './micro-app'
+import '@/styles/index.scss' // 全局样式
 import 'nprogress/nprogress.css'
+import router from './router'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
 const instance = new Vue({
-  render: h => h(App)
+  render: h => h(App),
+  router
 }).$mount('#app')
 
 // 定义loader方法，loading改变时，将变量赋值给App.vue的data中的isLoading
@@ -46,5 +53,5 @@ registerMicroApps(apps, {
     }
   ]
 })
-setDefaultMountApp('/sub-vue')
+// setDefaultMountApp('/sub-vue')
 start()

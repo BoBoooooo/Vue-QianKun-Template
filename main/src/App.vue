@@ -14,7 +14,7 @@
       </ul>
       <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
     </div>
-    <div id="subapp-viewport"></div>
+        <router-view></router-view>
   </div>
 </template>
 
@@ -98,6 +98,7 @@ body {
   padding: 0;
 }
 .layout-wrapper {
+  height: 100%;
   .layout-header {
     height: 50px;
     width: 100%;
@@ -107,6 +108,7 @@ body {
     .logo {
       float: left;
       margin: 0 50px;
+      width: 200px;
     }
     .sub-apps {
       list-style: none;

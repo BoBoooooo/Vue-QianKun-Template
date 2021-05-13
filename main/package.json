@@ -13,7 +13,8 @@
     "element-ui": "^2.15.1",
     "nprogress": "^0.2.0",
     "qiankun": "^2.0.22",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
