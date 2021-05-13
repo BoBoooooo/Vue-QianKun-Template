@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    app1 about
+    <h2>app1 About.vue</h2>
   </div>
 </template>
 

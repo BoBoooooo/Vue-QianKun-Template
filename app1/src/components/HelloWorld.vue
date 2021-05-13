@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    app1 base123
+    <h2>app2 HelloWorld.vue</h2>
   </div>
 </template>
 

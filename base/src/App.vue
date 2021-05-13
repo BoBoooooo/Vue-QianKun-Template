@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <a href="/">主应用</a>
-    <a href="/vue">子应用</a>
     <router-view></router-view>
     <div id="container"></div>
   </div>
@@ -15,15 +13,22 @@ export default {
 </script>
 
 <style>
+html,body {
+  height: 100%;
+  overflow: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size:15px!important;
+  font-family:  Microsoft YaHei;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-a{
-  margin-right: 10px;
+  height: 100%;
 }
 </style>

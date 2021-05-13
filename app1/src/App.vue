@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <router-link to="/">home</router-link>
-    <router-link to="/about">about</router-link>
-    <router-link to="/helloword">helloword</router-link>
+    <h1>子应用app1</h1>
+    <router-link to="/" tag="p">home</router-link>
+    <router-link to="/about" tag="p">about</router-link>
+    <router-link to="/helloword" tag="p">helloword</router-link>
+
+    <h1>router-view</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -13,16 +16,6 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-a {
-  margin-right: 10px;
-}
+<style scoped>
+
 </style>
