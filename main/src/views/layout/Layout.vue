@@ -1,72 +1,68 @@
 <!--
- * @file: Layout布局
- * @author: BoBo
- * @copyright: BoBo
- * @Date: 2021-04-13 19:34:13
+@file 框架页布局
+@author BoBo
+@copyright BoBo
+@createDate 2018年11月13日14:50:08
 -->
-
 <template>
-  <el-container class="full-height">
-    <el-aside width="200px">
-      <el-menu
-        default-active="2"
-        class="el-menu full-height"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-      >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
-          </template>
-          <router-link to="/main/sub-vue">
-            <el-menu-item index="1-1">子系统sub-vue</el-menu-item>
-          </router-link>
-          <router-link to="/main/sub-react">
-            <el-menu-item index="1-2">子系统sub-react</el-menu-item>
-          </router-link>
-        </el-submenu>
-      </el-menu>
-    </el-aside>
-    <el-main>
-    <div id="subapp-viewport"></div>
-    </el-main>
-  </el-container>
+  <div class="app-wrapper">
+    <!-- 导航栏 -->
+    <Header />
+    <!-- 左侧菜单 -->
+    <Menu />
+    <div
+      class="main-container"
+      :class="{
+        hideSidebar: !sidebar,
+      }"
+    >
+      <!-- TAB标签页 -->
+      <!-- <TagsView /> -->
+      <!-- 二级路由 -->
+      <AppMain />
+    </div>
+
+    <el-backtop target=".main-container"></el-backtop>
+  </div>
 </template>
 
 <script>
-import { start } from 'qiankun'
+import { Component, Vue } from 'vue-property-decorator'
+import { AppMain, Header, Menu } from './components'
 
-export default {
+@Component({
   name: 'Layout',
-  methods: {
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
-    }
-  },
-  mounted () {
-    if (!window.qiankunStarted) {
-      window.qiankunStarted = true
-      start()
-    }
+  components: {
+    AppMain,
+    Header,
+    Menu
+  }
+})
+export default class Layout extends Vue {
+  get sidebar () {
+    // return this.$store.getters.sidebar.opened
+    return true
   }
 }
 </script>
 
-<style scoped>
-.el-menu >>> .el-submenu__title {
-  text-align: left;
-}
-.full-height {
+<style rel="stylesheet/scss" lang="scss" scoped>
+.app-wrapper {
+  overflow: hidden;
   height: 100%;
-}
-#container {
-  height: 100%;
+  background: #f0f3f7;
+  // 主体区域
+  .main-container {
+    background: #f0f3f7;
+    margin-left: 220px;
+    padding: 20px;
+    overflow: auto;
+    box-sizing: border-box;
+    height: calc(100% - 40px);
+    margin-top: 60px;
+    &.hideSidebar {
+      margin-left: 80px;
+    }
+  }
 }
 </style>
