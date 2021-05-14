@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { registerMicroApps, start } from 'qiankun'
+import { registerMicroApps, start, setDefaultMountApp } from 'qiankun'
 import microApps from './micro-app'
 import '@/styles/index.scss' // 全局样式
 import 'nprogress/nprogress.css'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import '@/icons/autoImportSvg' // 自动导入src/icon目录下的svg图标
 
 Vue.use(ElementUI)
 
@@ -53,5 +54,5 @@ registerMicroApps(apps, {
     }
   ]
 })
-// setDefaultMountApp('/sub-vue')
+setDefaultMountApp('/main/sub-vue')
 start()

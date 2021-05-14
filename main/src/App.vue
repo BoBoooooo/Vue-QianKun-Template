@@ -1,7 +1,7 @@
 <template>
   <div class="layout-wrapper">
-    <div class="layout-header">
-      <div class="logo">QIANKUN-EXAMPLE</div>
+    <!-- <div class="layout-header">
+      <div class="logo">{{title}}</div>
       <ul class="sub-apps">
         <li
           v-for="item in microApps"
@@ -13,8 +13,8 @@
         </li>
       </ul>
       <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
-    </div>
-        <router-view></router-view>
+    </div> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
   computed: {
     user () {
       return store.getGlobalState('user')
+    },
+    title () {
+      return process.env.VUE_APP_NAME
     }
   },
   watch: {

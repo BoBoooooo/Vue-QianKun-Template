@@ -15,6 +15,18 @@ const routes = [
     redirect: '/main'
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/public/Login.vue')
+
+  },
+  {
+    path: '/404',
+    name: 'NotFound',
+    component: () => import('@/views/public/404.vue')
+
+  },
+  {
     path: '/main/*',
     name: 'Layout',
     component: () => import('@/views/layout/Layout.vue')
