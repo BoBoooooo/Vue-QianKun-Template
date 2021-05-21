@@ -31,6 +31,11 @@ const constantRouterMap = [
     name: "Layout",
     component: () => import("@/views/layout/Layout.vue"),
   },
+  {
+    path: "*",
+    redirect: "/404",
+    meta: { hidden: true },
+  },
 ];
 
 const router = new Router({

@@ -26,7 +26,7 @@ export default {
   methods: {
     goLogin() {
       // this.$store.commit('SET_TOKEN', null)
-      window.location.reload();
+      window.location.href = "/";
     },
   },
 };
