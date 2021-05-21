@@ -1,13 +1,24 @@
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 15px !important;
+  font-family: Microsoft YaHei;
+}
+.full-height {
+  height: 100%;
+}
 
-body,html {
+// 容器窗口默认100%高度
+#subapp-viewport {
+  height: 100%;
+}
+div[id^='__qiankun_microapp_wrapper_'] {
+  height: 100%;
+  #root{
     height: 100%;
-    overflow: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-size:15px!important;
-    font-family:  Microsoft YaHei;
   }
-.full-height{
-    height: 100%;
 }
