@@ -2,11 +2,12 @@ import Vue from "vue";
 import { registerMicroApps, start, setDefaultMountApp } from "qiankun";
 import store from "@/store/index"; // store内做了局部持久化
 import App from "./App.vue";
-import microApps from "./micro-app";
+import microApps from "./router/micro-app";
 import "@/styles/index.scss"; // 全局样式
 import "nprogress/nprogress.css";
 import { router } from "./router";
 import "@/plugins/element"; // vue-cli3.0以插件形式引入elementui
+import "@/plugins/element-pro-crud"; // 引入element-pro-crud
 import "@/icons/autoImportSvg";
 // 自动导入src/icon目录下的svg图标
 Vue.config.productionTip = false;

@@ -5,7 +5,7 @@
  * @createDate 2018年11月13日20:30:41
  */
 
-import { constantRouterMap } from "@/router/index";
+import { constantRouterMap, microRouterMap } from "@/router/index";
 
 /**
  * 判断是否有路由权限
@@ -41,7 +41,7 @@ function filterAsyncRouter(routerMap, roles) {
 
 const permission = {
   state: {
-    routers: constantRouterMap,
+    routers: [...microRouterMap, ...constantRouterMap],
     addRouters: [],
     menuNum: {},
   },

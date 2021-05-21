@@ -8,15 +8,23 @@
 <template>
   <div class="menu-wrapper">
     <template v-for="item in routes">
-      <router-link :key="item.name" :to="item.activeRule">
-        <el-tooltip effect="dark" :content="item.name" placement="right">
-          <el-menu-item :index="item.name">
-            <SvgIcon icon-class="开发人员工具" />
-            {{ item.name }}
+      <router-link
+        v-if="!item.meta.hidden && item.children && item.children.length === 1"
+        :key="item.name"
+        :to="{ name: item.children[0].name }"
+      >
+        <el-tooltip
+          effect="dark"
+          :content="item.children[0].meta.title"
+          placement="right"
+        >
+          <el-menu-item :index="item.children[0].name">
+            <SvgIcon :icon-class="item.meta.title" />
+            {{ item.children[0].meta.title }}
           </el-menu-item>
         </el-tooltip>
       </router-link>
-      <!-- <el-submenu
+      <el-submenu
         v-else-if="!item.meta.hidden && item.children"
         :index="item.name"
         :key="item.name"
@@ -42,13 +50,14 @@
             </el-menu-item>
           </router-link>
         </template>
-      </el-submenu> -->
+      </el-submenu>
     </template>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { RouteConfig } from "vue-router";
 
 @Component({
   name: "MenuItem",
@@ -59,7 +68,7 @@ export default class MenuItem extends Vue {
     required: true,
     default: () => [],
   })
-  routes;
+  private routes!: RouteConfig;
 }
 </script>
 
@@ -76,8 +85,8 @@ export default class MenuItem extends Vue {
   vertical-align: -0.4em !important;
 }
 .hideSidebar .SvgIcon {
-  width: 26px !important;
-  height: 26px !important;
+  width: 32px !important;
+  height: 32px !important;
   margin-top: 25px;
   margin-left: 0px;
   margin-right: 50px;

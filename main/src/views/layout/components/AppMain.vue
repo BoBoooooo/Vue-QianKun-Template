@@ -1,13 +1,13 @@
 <!--
-@file 本页面用于加载其他二级路由对应的子页面，被layout/layout.vue引用
-      嵌套顺序App.vue->Layout.vue->AppMain.vue
-@author ytyang
+@file 托管了基座路由渲染以及子应用入口
+@author BoBo
 @copyright BoBo
-@createDate 2018年11月13日14:48:28
+@createDate 2021年05月21日14:39:53
 -->
+
 <template>
   <section class="app-main" ref="appmain" @scroll="handleScroll">
-    <!-- <router-view :scrollTop="scrollTop" :key="key" @viewScroll="viewScroll" /> -->
+    <router-view :scrollTop="scrollTop" :key="key" @viewScroll="viewScroll" />
     <div id="subapp-viewport"></div>
   </section>
 </template>
@@ -40,6 +40,8 @@ export default class AppMain extends Vue {
   }
 
   mounted() {
+    // 手动触发qiankun入口渲染
+    // https://qiankun.umijs.org/zh/faq
     if (!window.qiankunStarted) {
       window.qiankunStarted = true;
       start();

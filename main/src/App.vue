@@ -21,7 +21,7 @@
 <script>
 import NProgress from "nprogress";
 import store from "@/store";
-import microApps from "./micro-app";
+import microApps from "@/router/micro-app";
 
 export default {
   name: "App",

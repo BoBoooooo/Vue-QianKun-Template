@@ -48,7 +48,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
 import themeColor from "@/styles/theme";
-import microApps from "@/micro-app";
 import MenuItem from "./MenuItem.vue";
 
 @Component({
@@ -58,7 +57,7 @@ import MenuItem from "./MenuItem.vue";
   },
 })
 export default class Menu extends Vue {
-  // @Getter routers;
+  @Getter routers;
 
   @Getter config;
 
@@ -66,10 +65,6 @@ export default class Menu extends Vue {
 
   get sidebar() {
     return this.$store.getters.sidebar.opened;
-  }
-
-  get routers() {
-    return microApps;
   }
 
   get title() {
