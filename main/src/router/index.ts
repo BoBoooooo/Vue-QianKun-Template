@@ -12,7 +12,7 @@ Vue.use(Router);
 const constantRouterMap = [
   {
     path: "/",
-    redirect: "/main",
+    redirect: "/main/sub-vue",
     hidden: true,
   },
   {
