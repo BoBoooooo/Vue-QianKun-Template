@@ -18,7 +18,7 @@
       }"
     >
       <!-- 折叠侧边栏按钮 -->
-      <!-- <Hamburger
+      <Hamburger
         :toggle-click="toggleSideBar"
         :is-active="!!sidebar"
         :style="{
@@ -28,7 +28,7 @@
         :class="{
           isActive: !sidebar,
         }"
-      /> -->
+      />
       <!-- 面包屑导航 -->
       <!-- <Breadcrumb></Breadcrumb> -->
 
@@ -62,9 +62,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
 import themeColor from "@/styles/theme";
+import Hamburger from "@/components/Hamburger/Hamburger.vue";
 
 @Component({
   name: "Header",
+  components: {
+    Hamburger,
+  },
 })
 export default class Header extends Vue {
   @Getter config;

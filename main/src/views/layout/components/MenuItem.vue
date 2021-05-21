@@ -11,7 +11,7 @@
       <router-link :key="item.name" :to="item.activeRule">
         <el-tooltip effect="dark" :content="item.name" placement="right">
           <el-menu-item :index="item.name">
-            <!-- <SvgIcon :icon-class="item.meta.title" /> -->
+            <SvgIcon icon-class="开发人员工具" />
             {{ item.name }}
           </el-menu-item>
         </el-tooltip>
@@ -76,8 +76,8 @@ export default class MenuItem extends Vue {
   vertical-align: -0.4em !important;
 }
 .hideSidebar .SvgIcon {
-  width: 32px !important;
-  height: 32px !important;
+  width: 26px !important;
+  height: 26px !important;
   margin-top: 25px;
   margin-left: 0px;
   margin-right: 50px;

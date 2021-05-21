@@ -110,7 +110,7 @@ export default class Menu extends Vue {
     color: yellow;
   }
   &.hideSidebar {
-    width: 63px;
+    width: 64px;
     padding: 0;
     .title {
       display: none;
