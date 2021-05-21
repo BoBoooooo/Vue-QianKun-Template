@@ -9,6 +9,9 @@ import { router } from "./router";
 import "@/plugins/element"; // vue-cli3.0以插件形式引入elementui
 import "@/plugins/element-pro-crud"; // 引入element-pro-crud
 import "@/icons/autoImportSvg";
+import "normalize.css";
+import "@/permission"; // 权限控制
+
 // 自动导入src/icon目录下的svg图标
 Vue.config.productionTip = false;
 

@@ -34,5 +34,6 @@ export default {
 <style scoped>
 .hamburger {
   font-size: 26px;
+  padding-left: 20px;
 }
 </style>

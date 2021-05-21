@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <% if (htmlWebpackPlugin.files.favicon) { %>
+    <link rel="icon" href="<%= htmlWebpackPlugin.files.favicon%>" />
+    <% } else { %>
+    <link rel="icon" href="https://pic.downk.cc/item/5f4cc022160a154a67cc2f28.png" />
+    <% } %> <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
+    <% } %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@0.4.0/dist/vue-treeselect.min.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- 服务器地址 -->
+    <% if (htmlWebpackPlugin.options.HOST_URL) { %>
+    <script>
+      window.__HOST__URL__ = '<%= htmlWebpackPlugin.options.HOST_URL%>';
+    </script>
+    <% } %>
+    <!-- 后端地址 -->
+    <% if (htmlWebpackPlugin.options.PREFIX_URL) { %>
+    <script>
+      window.__PREFIX__URL__ = '<%= htmlWebpackPlugin.options.PREFIX_URL%>';
+    </script>
+    <% } %>
+    <!-- IM地址 -->
+    <% if (htmlWebpackPlugin.options.CHAT_URL) { %>
+    <script>
+      window.__CHAT__URL__ = '<%= htmlWebpackPlugin.options.CHAT_URL%>';
+    </script>
+    <% } %>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>请修改浏览器设置以启用Javascript</strong>
     </noscript>
+
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script src="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@0.4.0/dist/vue-treeselect.umd.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/tinymce/4.7.5/tinymce.min.js"></script> 
+    <% for (var js in htmlWebpackPlugin.files.js) { %>
+    <script src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
+    <% } %> <% if (htmlWebpackPlugin.options.devServer) { %>
+    <script src="<%= htmlWebpackPlugin.options.devServer%>/webpack-dev-server.js"></script>
+    <% } %>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.1/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/ace/test/ace.js"></script>
   </body>
 </html>

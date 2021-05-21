@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require("path");
 
 const PROJECT_NAME = process.env.VUE_APP_NAME;
@@ -8,6 +9,10 @@ function resolve(dir) {
 
 module.exports = {
   transpileDependencies: ["common"],
+  // 开发阶段服务器配置
+  devServer: {
+    port: process.env.PORT ? +process.env.PORT : 80,
+  },
   chainWebpack: (config) => {
     config.resolve.alias.set("@", resolve("src"));
 
@@ -28,7 +33,18 @@ module.exports = {
       .options({
         symbolId: "icon-[name]",
       })
-      .end();
+      .end(); // 移除prefecth 提高首屏速度
+    config.plugins.delete("prefetch");
+    // 关闭自动注入，手动在index.html按需加载
+    // 会导致菜单切换时请求新资源，但可提高30%首屏渲染速度
+    config.plugin("html").tap((options) => {
+      options[0].inject = false;
+      options[0].title = PROJECT_NAME;
+      // 向html模板注入 服务端URL地址,用于生产环境动态修改
+      options[0].HOST_URL = process.env.VUE_APP_HOST_URL;
+      options[0].PREFIX_URL = process.env.VUE_APP_API_URL;
+      return options;
+    });
   },
   css: {
     loaderOptions: {
