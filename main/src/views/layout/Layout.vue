@@ -27,21 +27,20 @@
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator'
-import { AppMain, Header, Menu } from './components'
+import { Component, Vue } from "vue-property-decorator";
+import { AppMain, Header, Menu } from "./components";
 
 @Component({
-  name: 'Layout',
+  name: "Layout",
   components: {
     AppMain,
     Header,
-    Menu
-  }
+    Menu,
+  },
 })
 export default class Layout extends Vue {
-  get sidebar () {
-    // return this.$store.getters.sidebar.opened
-    return true
+  get sidebar() {
+    return this.$store.getters.sidebar.opened;
   }
 }
 </script>

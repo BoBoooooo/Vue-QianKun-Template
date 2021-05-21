@@ -18,7 +18,7 @@
       }"
     >
       <!-- 折叠侧边栏按钮 -->
-      <Hamburger
+      <!-- <Hamburger
         :toggle-click="toggleSideBar"
         :is-active="!!sidebar"
         :style="{
@@ -28,21 +28,15 @@
         :class="{
           isActive: !sidebar,
         }"
-      />
+      /> -->
       <!-- 面包屑导航 -->
-      <Breadcrumb></Breadcrumb>
+      <!-- <Breadcrumb></Breadcrumb> -->
 
       <div class="header-right-container">
-        <!-- 即时通讯 -->
-        <OnlineChat
-          :style="{
-            color: themeColor.header.textColor,
-          }"
-        ></OnlineChat>
         <!-- 姓名及下拉菜单 -->
         <div class="user-container">
           <img :src="photo" v-if="photo" class="photo" @click="showCard" />
-          <svgIcon class="photo" v-else icon-class="teacher" @click.native="showCard"></svgIcon>
+          <svgIcon class="photo" v-else icon-class="teacher"></svgIcon>
           <span
             :style="{
               color: themeColor.header.textColor,
@@ -61,17 +55,16 @@
         </div>
       </div>
     </el-header>
-    <PersonInfoCard ref="personInfoCard"></PersonInfoCard>
   </div>
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator'
-import { Getter } from 'vuex-class'
-import themeColor from '@/styles/theme'
+import { Component, Vue } from "vue-property-decorator";
+import { Getter } from "vuex-class";
+import themeColor from "@/styles/theme";
 
 @Component({
-  name: 'Header'
+  name: "Header",
 })
 export default class Header extends Vue {
   @Getter config;
@@ -80,20 +73,16 @@ export default class Header extends Vue {
 
   themeColor = themeColor;
 
-  get sidebar () {
-    return this.$store.getters.sidebar.opened
+  get sidebar() {
+    return this.$store.getters.sidebar.opened;
   }
 
-  showCard () {
-    this.$refs.personInfoCard.showDialog()
+  toggleSideBar() {
+    this.$store.dispatch("ToggleSideBar");
   }
 
-  toggleSideBar () {
-    this.$store.dispatch('ToggleSideBar')
-  }
-
-  logOut () {
-    this.$store.dispatch('clearToken')
+  logOut() {
+    this.$store.dispatch("clearToken");
   }
 }
 </script>
@@ -109,6 +98,7 @@ export default class Header extends Vue {
   right: 0;
   color: black;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  display: flex;
   &.hideSidebar {
     left: 64px;
   }

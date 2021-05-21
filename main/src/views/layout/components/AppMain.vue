@@ -8,41 +8,41 @@
 <template>
   <section class="app-main" ref="appmain" @scroll="handleScroll">
     <!-- <router-view :scrollTop="scrollTop" :key="key" @viewScroll="viewScroll" /> -->
-        <div id="subapp-viewport"></div>
+    <div id="subapp-viewport"></div>
   </section>
 </template>
 <script>
-import { Component, Vue } from 'vue-property-decorator'
-import { start } from 'qiankun'
+import { Component, Vue } from "vue-property-decorator";
+import { start } from "qiankun";
 
 @Component({
-  name: 'AppMain'
+  name: "AppMain",
 })
 export default class AppMain extends Vue {
   scrollTop = 0;
 
-  get cachedViews () {
-    return this.$store.state.tagsView.cachedViews
+  get cachedViews() {
+    return this.$store.state.tagsView.cachedViews;
   }
 
-  get key () {
-    return this.$route.fullPath
+  get key() {
+    return this.$route.fullPath;
   }
 
   // 根据右侧滚动条实时刷新滚动条距离顶部的位置，并通过<router-view>传入子页面
-  handleScroll () {
-    this.scrollTop = this.$refs.appmain.scrollTop
+  handleScroll() {
+    this.scrollTop = this.$refs.appmain.scrollTop;
   }
 
   // 重定位滚动条
-  viewScroll (v) {
-    this.$refs.appmain.scrollTop = v
+  viewScroll(v) {
+    this.$refs.appmain.scrollTop = v;
   }
 
-  mounted () {
+  mounted() {
     if (!window.qiankunStarted) {
-      window.qiankunStarted = true
-      start()
+      window.qiankunStarted = true;
+      start();
     }
   }
 }

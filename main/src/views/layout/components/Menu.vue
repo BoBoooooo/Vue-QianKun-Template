@@ -45,30 +45,35 @@
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator'
-import { Getter } from 'vuex-class'
-import themeColor from '@/styles/theme'
-import MenuItem from './MenuItem.vue'
+import { Component, Vue } from "vue-property-decorator";
+import { Getter } from "vuex-class";
+import themeColor from "@/styles/theme";
+import microApps from "@/micro-app";
+import MenuItem from "./MenuItem.vue";
 
 @Component({
-  name: 'Menu',
+  name: "Menu",
   components: {
-    MenuItem
-  }
+    MenuItem,
+  },
 })
 export default class Menu extends Vue {
-  @Getter routers;
+  // @Getter routers;
 
   @Getter config;
 
   themeColor = themeColor;
 
-  get sidebar () {
-    return this.$store.getters.sidebar.opened
+  get sidebar() {
+    return this.$store.getters.sidebar.opened;
   }
 
-  get title () {
-    return this.config.systemName || process.env.VUE_APP_NAME
+  get routers() {
+    return microApps;
+  }
+
+  get title() {
+    return "Micro-Qiankun";
   }
 }
 </script>
@@ -81,10 +86,11 @@ export default class Menu extends Vue {
 .title-container {
   position: fixed;
   left: 0;
+  box-sizing: border-box;
   top: 0;
   display: flex;
   align-items: center;
-  width: 219px;
+  width: 220px;
   padding-left: 20px;
   text-align: center;
   height: 64px;
@@ -97,7 +103,7 @@ export default class Menu extends Vue {
   }
   .title {
     font-weight: 500;
-    font-family: 'YaHei';
+    font-family: "YaHei";
     font-size: 20px;
   }
   .icon {

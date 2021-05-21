@@ -10,7 +10,9 @@
       <el-col :span="12" class="wallpaper">
         <div @click="redirectToGitHub">
           <svg-icon icon-class="banner" class="banner"></svg-icon>
-          <p class="author">© Awesome QianKun Micro Frontend Template By BoBo</p>
+          <p class="author">
+            © Awesome QianKun Micro Frontend Template By BoBo
+          </p>
         </div>
       </el-col>
       <el-col :span="12">
@@ -59,53 +61,53 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: "",
+        password: "",
       },
 
-      btnLoginIsLoading: false
-    }
+      btnLoginIsLoading: false,
+    };
   },
   // 获取系统名称,在字典配置-系统配置中设置标题
   computed: {
-    title () {
-      return process.env.VUE_APP_NAME
-    }
+    title() {
+      return process.env.VUE_APP_NAME;
+    },
   },
   methods: {
-    redirectToGitHub () {
-      window.open('https://github.com/BoBoooooo/BoBo-Vue-Admin', '_blank')
+    redirectToGitHub() {
+      window.open("https://github.com/BoBoooooo/BoBo-Vue-Admin", "_blank");
     },
 
-    handleLogin () {
-      this.btnLoginIsLoading = true
-      this.$refs.loginForm.validate(valid => {
+    handleLogin() {
+      this.btnLoginIsLoading = true;
+      this.$refs.loginForm.validate((valid) => {
         if (!valid) {
-          this.btnLoginIsLoading = false
-          return null
+          this.btnLoginIsLoading = false;
+          return null;
         }
         this.$store
-          .dispatch('setTokenByLogin', this.loginForm)
-          .then(res => {
-            this.btnLoginIsLoading = false
+          .dispatch("setTokenByLogin", this.loginForm)
+          .then((res) => {
+            this.btnLoginIsLoading = false;
             // 进入内部页面
             this.$router
               .push({
-                path: '/'
+                path: "/",
               })
-              .catch(() => {})
+              .catch(() => {});
           })
           .catch(() => {
-            this.btnLoginIsLoading = false
-          })
-        return null
-      })
-    }
-  }
-}
+            this.btnLoginIsLoading = false;
+          });
+        return null;
+      });
+    },
+  },
+};
 </script>
 <style scoped></style>
 <style rel="stylesheet/scss" lang="scss" scoped>

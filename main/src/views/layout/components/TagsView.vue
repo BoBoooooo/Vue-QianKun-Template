@@ -17,10 +17,17 @@
         @contextmenu.prevent.native="openMenu(tag, $event)"
       >
         {{ tag.title }}
-        <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
+        <span
+          class="el-icon-close"
+          @click.prevent.stop="closeSelectedTag(tag)"
+        />
       </router-link>
     </scroll-pane>
-    <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
+    <ul
+      v-show="visible"
+      :style="{ left: left + 'px', top: top + 'px' }"
+      class="contextmenu"
+    >
       <li @click="closeSelectedTag(selectedTag)">关闭当前</li>
       <li @click="closeOthersTags">关闭其他</li>
       <li @click="closeAllTags">关闭全部</li>
@@ -29,15 +36,15 @@
 </template>
 
 <script>
-import ScrollPane from '@/components/ScrollPane/index.vue'
+import ScrollPane from "@/components/ScrollPane/index.vue";
 
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Vue, Watch } from "vue-property-decorator";
 
 @Component({
-  name: 'TagsView',
+  name: "TagsView",
   components: {
-    ScrollPane
-  }
+    ScrollPane,
+  },
 })
 export default class TagsView extends Vue {
   visible = false;
@@ -48,111 +55,111 @@ export default class TagsView extends Vue {
 
   selectedTag = {};
 
-  get visitedViews () {
-    return this.$store.state.tagsView.visitedViews
+  get visitedViews() {
+    return this.$store.state.tagsView.visitedViews;
   }
 
-  get sidebar () {
-    return this.$store.getters.sidebar.opened
+  get sidebar() {
+    return this.$store.getters.sidebar.opened;
   }
 
-  mounted () {
-    this.addViewTags()
+  mounted() {
+    this.addViewTags();
   }
 
-  toggleSideBar () {
-    this.$store.dispatch('ToggleSideBar')
+  toggleSideBar() {
+    this.$store.dispatch("ToggleSideBar");
     // 侧边栏隐藏后要重新触发resize让图表自适应
     setTimeout(() => {
-      window.dispatchEvent(new Event('resize'))
-    }, 250)
+      window.dispatchEvent(new Event("resize"));
+    }, 250);
   }
 
-  generateRoute () {
+  generateRoute() {
     if (this.$route.name) {
-      return this.$route
+      return this.$route;
     }
-    return false
+    return false;
   }
 
-  isActive (route) {
-    return route.path === this.$route.path || route.name === this.$route.name
+  isActive(route) {
+    return route.path === this.$route.path || route.name === this.$route.name;
   }
 
-  addViewTags () {
-    const route = this.generateRoute()
+  addViewTags() {
+    const route = this.generateRoute();
     if (!route) {
-      return false
+      return false;
     }
-    this.$store.dispatch('addVisitedViews', route)
-    return null
+    this.$store.dispatch("addVisitedViews", route);
+    return null;
   }
 
-  moveToCurrentTag () {
-    const tags = this.$refs.tag
+  moveToCurrentTag() {
+    const tags = this.$refs.tag;
     this.$nextTick(() => {
       for (const tag of tags) {
         if (tag.to === this.$route.path) {
-          this.$refs.scrollPane.moveToTarget(tag.$el)
-          break
+          this.$refs.scrollPane.moveToTarget(tag.$el);
+          break;
         }
       }
-    })
+    });
   }
 
-  closeSelectedTag (view) {
-    this.$store.dispatch('delVisitedViews', view).then((views) => {
+  closeSelectedTag(view) {
+    this.$store.dispatch("delVisitedViews", view).then((views) => {
       if (this.isActive(view)) {
-        const latestView = views.slice(-1)[0]
+        const latestView = views.slice(-1)[0];
         if (latestView) {
           // 打开最后访问的选项卡
-          this.$router.push(latestView.path)
+          this.$router.push(latestView.path);
         } else {
-          this.$router.push('/')
+          this.$router.push("/");
         }
       }
-    })
+    });
   }
 
-  closeOthersTags () {
-    this.$router.push(this.selectedTag.path)
-    this.$store.dispatch('delOthersViews', this.selectedTag).then(() => {
-      this.moveToCurrentTag()
-    })
+  closeOthersTags() {
+    this.$router.push(this.selectedTag.path);
+    this.$store.dispatch("delOthersViews", this.selectedTag).then(() => {
+      this.moveToCurrentTag();
+    });
   }
 
-  closeAllTags () {
-    this.$store.dispatch('delAllViews')
-    this.$router.push('/')
+  closeAllTags() {
+    this.$store.dispatch("delAllViews");
+    this.$router.push("/");
   }
 
-  openMenu (tag, e) {
-    this.visible = true
-    this.selectedTag = tag
+  openMenu(tag, e) {
+    this.visible = true;
+    this.selectedTag = tag;
     if (!this.sidebar) {
-      this.left = e.clientX - 40
+      this.left = e.clientX - 40;
     } else {
-      this.left = e.clientX - 180
+      this.left = e.clientX - 180;
     }
-    this.top = e.clientY - 28
+    this.top = e.clientY - 28;
   }
 
-  closeMenu () {
-    this.visible = false
+  closeMenu() {
+    this.visible = false;
   }
 
-  @Watch('$route')
-  routerChange () {
-    this.addViewTags()
-    this.moveToCurrentTag()
+  @Watch("$route")
+  routerChange() {
+    this.addViewTags();
+    this.moveToCurrentTag();
   }
 
-  @Watch('$visible')
-  visibleChange (value) {
+  @Watch("$visible")
+  visibleChange(value) {
     if (value) {
-      window.addEventListener('click', this.closeMenu)
+      window.addEventListener("click", this.closeMenu);
     } else {
-      window.removeEventListener('click', this.closeMenu)
+      window.removeEventListener("click", this.closeMenu);
     }
   }
 }
