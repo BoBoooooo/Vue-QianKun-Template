@@ -8,12 +8,13 @@
 <template>
   <section class="app-main" ref="appmain" @scroll="handleScroll">
     <router-view :scrollTop="scrollTop" :key="key" @viewScroll="viewScroll" />
-    <div id="subapp-viewport"></div>
+    <div id="subapp-viewport" v-show="isMicroApp"></div>
   </section>
 </template>
 <script>
 import { Component, Vue } from "vue-property-decorator";
 import { start } from "qiankun";
+import microApp from "@/router/micro-app";
 
 @Component({
   name: "AppMain",
@@ -21,8 +22,14 @@ import { start } from "qiankun";
 export default class AppMain extends Vue {
   scrollTop = 0;
 
+  microApp;
+
   get cachedViews() {
     return this.$store.state.tagsView.cachedViews;
+  }
+
+  get isMicroApp() {
+    return this.$route.path.startsWith("/main");
   }
 
   get key() {
@@ -51,6 +58,6 @@ export default class AppMain extends Vue {
 </script>
 <style lang="scss" scoped>
 .app-main {
-  height: calc(100% - 40px);
+  height: calc(100% - 20px);
 }
 </style>

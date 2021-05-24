@@ -12,7 +12,7 @@ a:-webkit-any-link{
   text-decoration: none !important;
 }
 
-.full-height {
+.full-height,.CrudTable {
   height: 100%;
 }
 
@@ -25,4 +25,8 @@ div[id^='__qiankun_microapp_wrapper_'] {
   #root{
     height: 100%;
   }
+}
+.page-container{
+  height: 100%;
+  padding: 20px;
 }
