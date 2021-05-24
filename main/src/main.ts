@@ -14,6 +14,10 @@ import "@/permission"; // 权限控制
 
 // 自动导入src/icon目录下的svg图标
 Vue.config.productionTip = false;
+// 注入全局HOST_URL地址
+Vue.prototype.HOST_URL = window.__HOST__URL__;
+Vue.prototype.API_URL = window.__HOST__URL__ + window.__PREFIX__URL__;
+Vue.prototype.CHAT_URL = window.__CHAT__URL__;
 
 const instance = new Vue({
   render: (h) => h(App),
