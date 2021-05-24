@@ -1,19 +1,12 @@
 const { name } = require('./package.json');
 
 const port = 7779; // dev port
-const dev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  publicPath: dev ? `//localhost:${port}` : '/',
+  publicPath: '/subapp/sub-vue3',
   filenameHashing: true,
   devServer: {
-    hot: true,
-    disableHostCheck: true,
     port,
-    overlay: {
-      warnings: false,
-      errors: true,
-    },
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
