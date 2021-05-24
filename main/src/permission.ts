@@ -17,7 +17,7 @@ router.beforeEach(async (to, from, next) => {
       next({
         path: "/",
       });
-    } else if (store.getters.addRouters.length === 0) {
+    } else if (!store.getters.userid) {
       // 如果addRouters长度为0说明permission.js中没有追加有权限的路由表
       // 请求用户信息
       const userInfo = await store.dispatch("getUserInfoByToken");
@@ -26,7 +26,7 @@ router.beforeEach(async (to, from, next) => {
         roleRouters: (userInfo.roleAuthName || "").split(","),
         userName: userInfo.userName,
       });
-      router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
+      // router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
       // store.dispatch('initWebSocket', store.getters.name); // 建立ws连接
       next({ ...to, replace: true } as any);
     } else {

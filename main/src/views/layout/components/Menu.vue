@@ -85,7 +85,7 @@ export default class Menu extends Vue {
   top: 0;
   display: flex;
   align-items: center;
-  width: 220px;
+  width: 219px;
   padding-left: 20px;
   text-align: center;
   height: 64px;

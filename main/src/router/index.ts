@@ -66,7 +66,7 @@ const constantRouterMap = [
         name: "PersonIndex",
         component: () =>
           import(/* webpackChunkName: "person" */ "@/views/person/Person.vue"),
-        meta: { title: "员工管理" },
+        meta: { title: "员工管理", icon: "员工管理" },
       },
     ],
   },

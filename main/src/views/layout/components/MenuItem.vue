@@ -19,7 +19,7 @@
           placement="right"
         >
           <el-menu-item :index="item.children[0].name">
-            <SvgIcon :icon-class="item.meta.title" />
+            <SvgIcon :icon-class="item.children[0].meta.icon || '系统管理'" />
             {{ item.children[0].meta.title }}
           </el-menu-item>
         </el-tooltip>
@@ -30,7 +30,8 @@
         :key="item.name"
       >
         <template slot="title">
-          <SvgIcon :icon-class="item.meta.title" /> {{ item.meta.title }}
+          <SvgIcon :icon-class="item.meta.icon || '系统管理'" />
+          {{ item.meta.title }}
         </template>
         <template v-for="child in item.children.filter((s) => !s.meta.hidden)">
           <menu-item
