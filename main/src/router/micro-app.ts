@@ -11,6 +11,11 @@ const microApps = [
     entry: process.env.VUE_APP_SUB_REACT,
     activeRule: "/main/sub-react",
   },
+  {
+    name: "sub-vue3",
+    entry: process.env.VUE_APP_SUB_VUE3,
+    activeRule: "/main/sub-vue3",
+  },
 ];
 
 const apps = microApps.map((item) => {
