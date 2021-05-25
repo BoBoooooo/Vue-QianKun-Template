@@ -1,6 +1,5 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue3.js App" />
     <router-view />
   </div>

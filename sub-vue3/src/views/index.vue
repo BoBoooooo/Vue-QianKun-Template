@@ -5,15 +5,15 @@
       <div class="msg-context">{{selfMsg}}</div>
     </div>
     <div class="msg-box">
-      <div class="msg-title">来自其他微应用的消息：</div>
+      <div class="msg-title">当前主应用姓名为:</div>
       <div class="msg-context">{{vuexMsg}}</div>
     </div>
     <div class="msg-box">
       <div class="msg-ipt-box">
-        <input class="msg-ipt" type="text" v-model="formMsg" placeholder="请输入你想广播的话" />
+        <input class="msg-ipt" type="text" v-model="formMsg" placeholder="请输入你想广播的姓名" />
       </div>
       <div class="msg-btn-box">
-        <button class="msg-btn" @click="handleVuexMsgChange">发送广播</button>
+        <button class="msg-btn" @click="handleVuexMsgChange">更新姓名</button>
       </div>
     </div>
   </div>
@@ -26,35 +26,17 @@ import { setState } from "@/utils/app-store";
 export default {
   name: "Home",
   setup() {
-    /**
-     * @name 通过getCurrentInstance方法得到当前上下文
-     */
     const { proxy } = getCurrentInstance();
-    /**
-     * @name 定义一个初始数据
-     */
-    const selfMsg = ref("subapp-blog");
-    /**
-     * @name 定义一个计算属性，返回vuex中的数据
-     */
+    const selfMsg = ref("subapp-vue3");
     const vuexMsg = computed(() => proxy.$store.getters.msg);
-    /**
-     * @name 定义一个表单元素v-model绑定的变量
-     */
     const formMsg = ref("");
-
-    /**
-     * @name 定义一个广播事件
-     */
     const handleVuexMsgChange = () => {
-      /**
-       * @name 注意：在setup内部使用定义的变量，需要用**.value取值！
-       */
       setState({
-        msg: formMsg.value
+        user: {
+          name: formMsg.value
+        }
       });
     };
-
     return {
       selfMsg,
       vuexMsg,
@@ -120,9 +102,6 @@ export default {
     margin: 0 0 0 15px;
     transition: 0.1s;
     font-weight: 500;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     padding: 7px 20px;
     font-size: 14px;
     border-radius: 4px;

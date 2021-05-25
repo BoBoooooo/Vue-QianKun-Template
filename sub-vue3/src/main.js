@@ -56,7 +56,6 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-    instance.$el.innerHTML = "";
-
+  instance.$el.innerHTML = "";
   instance = null;
 }
