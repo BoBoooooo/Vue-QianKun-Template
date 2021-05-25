@@ -11,8 +11,8 @@ function registerGlobalModule (store, props = {}) {
   }
 
   // 获取初始化的state
+  // 主要要跟基座  main/src/store.ts中的初始化内容保持一致
   const initState = props.getGlobalState && props.getGlobalState() || {
-    menu: [],
     user: {}
   };
 

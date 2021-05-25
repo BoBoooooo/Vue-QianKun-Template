@@ -1,5 +1,5 @@
 const getters = {
-  msg: state => state.appstore.user.name
+  name: state => state.global.user.name
 };
 
 export default getters;

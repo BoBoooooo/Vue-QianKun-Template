@@ -1,11 +1,10 @@
-import "./core/public-path";
+import "@/public-path";
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import App from "@/App.vue";
 import store from "@/store";
 import { store as commonStore } from '../../common'
 import selfRoutes from "@/router";
-import appStore from "@/utils/app-store";
 
 const __qiankun__ = window.__POWERED_BY_QIANKUN__;
 let router = null;
@@ -49,9 +48,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log("[vue] props from main framework", props);
-
   commonStore.globalRegister(store, props);
-  appStore(props)
   render(props);
 }
 
