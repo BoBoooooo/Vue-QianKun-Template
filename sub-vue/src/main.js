@@ -10,7 +10,10 @@ Vue.config.productionTip = false
 let instance = null
 
 function render (props = {}) {
+  console.log('sub-vue', props)
   const { container, routerBase } = props
+
+  console.log('sub-vue', props.getGlobalState())
   const router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? routerBase : process.env.BASE_URL,
     mode: 'history',

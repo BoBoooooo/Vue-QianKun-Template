@@ -33,6 +33,10 @@
       <!-- <Breadcrumb></Breadcrumb> -->
 
       <div class="header-right-container">
+        <el-button type="primary" size="mini" @click="updateGlobalState"
+          >更新全局状态</el-button
+        >
+        <el-tag style="margin: 0 10px"> {{ user }}</el-tag>
         <!-- 姓名及下拉菜单 -->
         <div class="user-container">
           <img :src="photo" v-if="photo" class="photo" @click="showCard" />
@@ -63,6 +67,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
 import themeColor from "@/styles/theme";
 import Hamburger from "@/components/Hamburger/Hamburger.vue";
+import store from "@/store";
 
 @Component({
   name: "Header",
@@ -77,6 +82,10 @@ export default class Header extends Vue {
 
   themeColor = themeColor;
 
+  get user() {
+    return store.getGlobalState("user");
+  }
+
   get sidebar() {
     return this.$store.getters.sidebar.opened;
   }
@@ -87,6 +96,16 @@ export default class Header extends Vue {
 
   logOut() {
     this.$store.dispatch("clearToken");
+  }
+
+  updateGlobalState() {
+    // 更新状态 调用全局方法setGlobalState,会触发onGlobalStateChange方法
+    store.setGlobalState({
+      user: {
+        name: "李四",
+      },
+    });
+    this.$message.success("user.name已更新");
   }
 }
 </script>

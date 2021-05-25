@@ -5,9 +5,9 @@
       <router-link to="/about">About</router-link> |
       <a href="#" @click="gotoSubReact" style="marin: 0 0 0 10px">跳转到 子应用2 sub-react</a>
     </div>
-    <div>
+    <h3>
       从vuex的global module的state： {{ JSON.stringify(user) }}
-    </div>
+    </h3>
     <router-view/>
   </div>
 </template>

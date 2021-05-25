@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { registerMicroApps, start, setDefaultMountApp } from "qiankun";
+import { registerMicroApps, setDefaultMountApp } from "qiankun";
 import store from "@/store/index"; // store内做了局部持久化
 import App from "./App.vue";
 import microApps from "./router/micro-app";
@@ -11,6 +11,7 @@ import "@/plugins/element-pro-crud"; // 引入element-pro-crud
 import "@/icons/autoImportSvg";
 import "normalize.css";
 import "@/permission"; // 权限控制
+import "@/store";
 
 // 自动导入src/icon目录下的svg图标
 Vue.config.productionTip = false;

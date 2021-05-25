@@ -13,6 +13,7 @@ const STORE = {};
  * @description 注意：子应用是附加在props上的onGlobalStateChange, setGlobalState方法（只用主应用注册了通信才会有）
  */
 const appStore = props => {
+  console.log(props)
   /**
    * @name 监听应用间通信，并存入store
    */
@@ -40,6 +41,7 @@ const appStore = props => {
  * @param {Object} data 按照你设定的内容格式数据 
  */
 const setState = (data) => {
+  console.log(data);
   STORE.setGlobalState?.({
     ignore: STORE.name,
     ...data
