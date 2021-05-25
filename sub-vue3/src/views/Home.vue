@@ -1,50 +1,72 @@
 <template>
   <div class="home">
+    <el-button type="danger" @click="dialogVisible = true">点击打开 Dialog</el-button>
+
+    <el-dialog title="提示" v-model="dialogVisible" width="30%" :before-close="handleClose">
+      <span>这是一段信息</span>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </template>
+    </el-dialog>
+
     <div class="msg-box">
       <div class="msg-title">这里是子应用：</div>
-      <div class="msg-context">{{selfMsg}}</div>
+      <div class="msg-context">{{ msg }}</div>
     </div>
     <div class="msg-box">
       <div class="msg-title">当前主应用姓名为:</div>
-      <div class="msg-context">{{vuexName.name}}</div>
+      <div class="msg-context">{{ vuexName.name }}</div>
     </div>
     <div class="msg-box">
-      <div class="msg-ipt-box">
-        <input class="msg-ipt" type="text" v-model="formMsg" placeholder="请输入你想广播的姓名" />
-      </div>
-      <div class="msg-btn-box">
-        <button class="msg-btn" @click="handleVuexMsgChange">更新姓名</button>
-      </div>
+      <el-input type="text" v-model="inputValue" placeholder="请输入你想广播的姓名" />
+      <el-button type="primary" @click="handleVuexMsgChange">更新姓名</el-button>
     </div>
   </div>
 </template>
 
 <script>
 import { ref, computed, getCurrentInstance } from "vue";
-import { useStore,mapState } from 'vuex';
+import { useStore, mapState } from "vuex";
+import { ElMessageBox } from 'element-plus'
 
 export default {
   name: "Home",
   setup() {
     const store = useStore();
-
+    const dialogVisible = ref(false);
     const { proxy } = getCurrentInstance();
-    const selfMsg = ref("subapp-vue3");
+    const msg = ref("subapp-vue3");
     const vuexName = computed(() => store.state.global.user);
-    const formMsg = ref("");
+    const inputValue = ref("");
+
+    // 调用vuex中setGlobalState更新全局状态
     const handleVuexMsgChange = () => {
-      store.dispatch('global/setGlobalState',{
+      store.dispatch("global/setGlobalState", {
         user: {
           name: formMsg.value
         }
       });
-      formMsg.value = ''
+      inputValue.value = "";
     };
+
+    const handleClose = done => {
+      ElMessageBox.confirm("确认关闭？")
+        .then(_ => {
+          done();
+        })
+        .catch(_ => {});
+    };
+
     return {
-      selfMsg,
+      msg,
       vuexName,
-      formMsg,
+      inputValue,
       handleVuexMsgChange,
+      dialogVisible,
+      handleClose
     };
   }
 };

@@ -4,7 +4,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from "@/App.vue";
 import store from "@/store";
 import { store as commonStore } from "../../common";
-import selfRoutes from "@/router";
+import routers from "@/router";
+import ElementPlus from 'element-plus';
+import 'element-plus/lib/theme-chalk/index.css';
 
 const __qiankun__ = window.__POWERED_BY_QIANKUN__;
 let router = null;
@@ -17,14 +19,15 @@ let instance = null;
  */
 const render = ({ routerBase, container } = {}) => {
   // Vue.config.productionTip = false;
+  console.log(__qiankun__)
   router = createRouter({
     history: createWebHistory(__qiankun__ ? routerBase : "/"),
-    // routes: __qiankun__ ? routeMatch(routes, routerBase) : selfRoutes
-    routes: selfRoutes
+    routes: routers
   });
   instance = createApp(App)
     .use(router)
     .use(store)
+    .use(ElementPlus)
     .mount(container ? container.querySelector("#app") : "#app");
 };
 
