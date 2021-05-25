@@ -15,7 +15,7 @@ let instance = null;
  * @description {Array} routes 主应用请求获取注册表后，从服务端拿到路由数据
  * @description {String} 子应用路由前缀 主应用请求获取注册表后，从服务端拿到路由数据
  */
-const render = ({ routes, routerBase, container } = {}) => {
+const render = ({ routerBase, container } = {}) => {
   // Vue.config.productionTip = false;
   router = createRouter({
     history: createWebHistory(__qiankun__ ? routerBase : "/"),

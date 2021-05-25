@@ -54,7 +54,7 @@ const user = {
         if (res.code === 200) {
           commit("SET_TOKEN", `Bearer ${res.data.token}`);
           // 关闭之前打开的标签
-          commit("DEL_ALL_VIEWS");
+          // commit("DEL_ALL_VIEWS");
           return res.data;
         }
         // 登录失败清空token

@@ -5,17 +5,14 @@
  * @param {qiankun下发的props} props 
  */
 function registerGlobalModule (store, props = {}) {
-
   if (!store || !store.hasModule) {
     return;
   }
-
   // 获取初始化的state
   // 主要要跟基座  main/src/store.ts中的初始化内容保持一致
   const initState = props.getGlobalState && props.getGlobalState() || {
     user: {}
   };
-
   // 将父应用的数据存储到子应用中，命名空间固定为global
   if (!store.hasModule('global')) {
     const globalModule = {
