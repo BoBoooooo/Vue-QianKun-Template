@@ -9,7 +9,7 @@
   <div>
     <el-tooltip effect="dark"
                 content="折叠菜单栏"
-                placement="bottom">
+                placement="right">
       <i :class="isActive?'el-icon-s-fold':'el-icon-s-unfold'" class="hamburger" @click="toggleClick"></i>
     </el-tooltip>
   </div>
@@ -35,5 +35,8 @@ export default {
 .hamburger {
   font-size: 26px;
   padding-left: 20px;
+  cursor: pointer;
+  vertical-align: -4px;
+  outline: none;
 }
 </style>
