@@ -13,13 +13,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   computed: {
-    // 通过global获取user的信息
-    ...mapState('global', {
-      user: state => state.user
-    })
+    user () {
+      return this.$store.state.global.user.name
+    }
   },
   methods: {
     gotoSubReact () {

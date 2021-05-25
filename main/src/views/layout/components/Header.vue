@@ -105,7 +105,7 @@ export default class Header extends Vue {
         name: "李四",
       },
     });
-    this.$message.success("user.name已更新");
+    this.$message.success("姓名已更新");
   }
 }
 </script>

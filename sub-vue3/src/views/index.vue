@@ -6,7 +6,7 @@
     </div>
     <div class="msg-box">
       <div class="msg-title">当前主应用姓名为:</div>
-      <div class="msg-context">{{vuexName}}</div>
+      <div class="msg-context">{{vuexName.name}}</div>
     </div>
     <div class="msg-box">
       <div class="msg-ipt-box">
@@ -21,7 +21,7 @@
 
 <script>
 import { ref, computed, getCurrentInstance } from "vue";
-import { useStore } from 'vuex';
+import { useStore,mapState } from 'vuex';
 
 export default {
   name: "Home",
@@ -30,7 +30,7 @@ export default {
 
     const { proxy } = getCurrentInstance();
     const selfMsg = ref("subapp-vue3");
-    const vuexName = computed(() => store.getters.name);
+    const vuexName = computed(() => store.state.global.user);
     const formMsg = ref("");
     const handleVuexMsgChange = () => {
       store.dispatch('global/setGlobalState',{
@@ -38,12 +38,13 @@ export default {
           name: formMsg.value
         }
       });
+      formMsg.value = ''
     };
     return {
       selfMsg,
       vuexName,
       formMsg,
-      handleVuexMsgChange
+      handleVuexMsgChange,
     };
   }
 };
