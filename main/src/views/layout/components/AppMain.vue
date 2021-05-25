@@ -51,7 +51,9 @@ export default class AppMain extends Vue {
     // https://qiankun.umijs.org/zh/faq
     if (!window.qiankunStarted) {
       window.qiankunStarted = true;
-      start();
+      start({
+        // sandbox: { strictStyleIsolation: true },
+      });
     }
   }
 }
