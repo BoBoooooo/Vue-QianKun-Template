@@ -1,5 +1,9 @@
 const { name } = require('./package.json');
-console.log(name)
+
+// 重写打包后文件路径
+const path = require('path')
+const paths = require('react-scripts/config/paths')
+paths.appBuild = path.join(path.dirname(paths.appBuild), 'sub-react')
 
 module.exports = {
   webpack: function override(config, env) {
