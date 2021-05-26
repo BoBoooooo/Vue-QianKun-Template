@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve"
+    "start": "npm run serve",
+    "fix": "eslint --fix --ext .ts,.js,.vue src"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -16,10 +17,30 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "husky": "^6.0.0",
+    "prettier": "^2.0.5",
     "sass": "^1.26.10",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "typescript": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue,ts,scss}": [
+      "npm run fix",
+      "git add"
+    ]
   }
 }

@@ -2,7 +2,7 @@
   <div class="home">
     <el-button type="danger" @click="dialogVisible = true">点击打开 Dialog</el-button>
 
-    <el-dialog title="提示" v-model="dialogVisible" width="30%" :before-close="handleClose">
+    <el-dialog v-model="dialogVisible" title="提示" width="30%" :before-close="handleClose">
       <span>这是一段信息</span>
       <template #footer>
         <span class="dialog-footer">
@@ -21,43 +21,40 @@
       <div class="msg-context">{{ vuexName.name }}</div>
     </div>
     <div class="msg-box">
-      <el-input type="text" v-model="inputValue" placeholder="请输入你想广播的姓名" />
+      <el-input v-model="inputValue" type="text" placeholder="请输入你想广播的姓名" />
       <el-button type="primary" @click="handleVuexMsgChange">更新姓名</el-button>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed, getCurrentInstance } from "vue";
-import { useStore, mapState } from "vuex";
-import { ElMessageBox } from 'element-plus'
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
+import { ElMessageBox } from 'element-plus';
 
 export default {
-  name: "Home",
+  name: 'Home',
   setup() {
     const store = useStore();
     const dialogVisible = ref(false);
-    const { proxy } = getCurrentInstance();
-    const msg = ref("subapp-vue3");
+    const msg = ref('subapp-vue3');
     const vuexName = computed(() => store.state.global.user);
-    const inputValue = ref("");
+    const inputValue = ref('');
 
     // 调用vuex中setGlobalState更新全局状态
     const handleVuexMsgChange = () => {
-      store.dispatch("global/setGlobalState", {
+      store.dispatch('global/setGlobalState', {
         user: {
-          name: formMsg.value
-        }
+          name: formMsg.value,
+        },
       });
-      inputValue.value = "";
+      inputValue.value = '';
     };
 
     const handleClose = done => {
-      ElMessageBox.confirm("确认关闭？")
-        .then(_ => {
-          done();
-        })
-        .catch(_ => {});
+      ElMessageBox.confirm('确认关闭？').then(() => {
+        done();
+      });
     };
 
     return {
@@ -66,9 +63,9 @@ export default {
       inputValue,
       handleVuexMsgChange,
       dialogVisible,
-      handleClose
+      handleClose,
     };
-  }
+  },
 };
 </script>
 

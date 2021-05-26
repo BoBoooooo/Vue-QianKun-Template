@@ -1,5 +1,5 @@
 const getters = {
-  msg: state => state.app.msg
-}
+  msg: state => state.app.msg,
+};
 
-export default getters
+export default getters;
