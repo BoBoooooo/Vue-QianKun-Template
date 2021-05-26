@@ -4,13 +4,13 @@
  * @copyright BoBo
  * @createDate 2018年11月13日18:09:59
  */
-import Vue from "vue";
-import Vuex from "vuex";
-import app from "./modules/app";
-import user from "./modules/user";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import app from './modules/app';
+import user from './modules/user';
 // import tagsView from "./modules/tagsView";
-import asyncRouters from "./modules/asyncRouters";
-import getters from "./getters";
+import asyncRouters from './modules/asyncRouters';
+import getters from './getters';
 
 Vue.use(Vuex);
 

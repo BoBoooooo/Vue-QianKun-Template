@@ -5,7 +5,7 @@
  * @createDate 2018年11月13日20:30:41
  */
 
-import { constantRouterMap, microRouterMap } from "@/router/index";
+import { constantRouterMap, microRouterMap } from '@/router/index';
 
 /**
  * 判断是否有路由权限
@@ -14,7 +14,7 @@ import { constantRouterMap, microRouterMap } from "@/router/index";
  */
 function hasPermission(roles, route) {
   if (route.name) {
-    return roles.some((role) => route.name === role);
+    return roles.some(role => route.name === role);
   }
   return true;
 }
@@ -25,7 +25,7 @@ function hasPermission(roles, route) {
  * @param roles 当前登录用户的角色
  */
 function filterAsyncRouter(routerMap, roles) {
-  const accessedRouters = routerMap.filter((route) => {
+  const accessedRouters = routerMap.filter(route => {
     // 如果父级菜单有访问权限
     if (hasPermission(roles, route)) {
       // 下级菜单鉴权

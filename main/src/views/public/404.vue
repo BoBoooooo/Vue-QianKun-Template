@@ -8,12 +8,7 @@
   <div style="height: 100%; width: 100%">
     <div class="pic-404">
       <svg-icon class="logo" icon-class="404"></svg-icon>
-      <el-button
-        style="box-shadow: none"
-        type="text"
-        @click="goLogin"
-        class="btn"
-      >
+      <el-button style="box-shadow: none" type="text" @click="goLogin" class="btn">
         页面丢失了哦,请重新登录~!
       </el-button>
     </div>
@@ -22,11 +17,11 @@
 
 <script>
 export default {
-  name: "notFound",
+  name: 'notFound',
   methods: {
     goLogin() {
       // this.$store.commit('SET_TOKEN', null)
-      window.location.href = "/";
+      window.location.href = '/';
     },
   },
 };

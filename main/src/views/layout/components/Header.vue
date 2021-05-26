@@ -33,9 +33,7 @@
       <!-- <Breadcrumb></Breadcrumb> -->
 
       <div class="header-right-container">
-        <el-button type="primary" size="mini" @click="updateGlobalState"
-          >更新全局状态</el-button
-        >
+        <el-button type="primary" size="mini" @click="updateGlobalState">更新全局状态</el-button>
         <el-tag style="margin: 0 10px"> {{ user }}</el-tag>
         <!-- 姓名及下拉菜单 -->
         <div class="user-container">
@@ -63,14 +61,14 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
-import { Getter } from "vuex-class";
-import themeColor from "@/styles/theme";
-import Hamburger from "@/components/Hamburger/Hamburger.vue";
-import store from "@/store";
+import { Component, Vue } from 'vue-property-decorator';
+import { Getter } from 'vuex-class';
+import themeColor from '@/styles/theme';
+import Hamburger from '@/components/Hamburger/Hamburger.vue';
+import store from '@/store';
 
 @Component({
-  name: "Header",
+  name: 'Header',
   components: {
     Hamburger,
   },
@@ -83,7 +81,7 @@ export default class Header extends Vue {
   themeColor = themeColor;
 
   get user() {
-    return store.getGlobalState("user");
+    return store.getGlobalState('user');
   }
 
   get sidebar() {
@@ -91,21 +89,21 @@ export default class Header extends Vue {
   }
 
   toggleSideBar() {
-    this.$store.dispatch("ToggleSideBar");
+    this.$store.dispatch('ToggleSideBar');
   }
 
   logOut() {
-    this.$store.dispatch("clearToken");
+    this.$store.dispatch('clearToken');
   }
 
   updateGlobalState() {
     // 更新状态 调用全局方法setGlobalState,会触发onGlobalStateChange方法
     store.setGlobalState({
       user: {
-        name: "李四",
+        name: '李四',
       },
     });
-    this.$message.success("姓名已更新");
+    this.$message.success('姓名已更新');
   }
 }
 </script>

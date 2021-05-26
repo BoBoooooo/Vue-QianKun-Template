@@ -12,12 +12,12 @@
   </section>
 </template>
 <script>
-import { Component, Vue } from "vue-property-decorator";
-import { start } from "qiankun";
-import microApp from "@/router/micro-app";
+import { Component, Vue } from 'vue-property-decorator';
+import { start } from 'qiankun';
+import microApp from '@/router/micro-app';
 
 @Component({
-  name: "AppMain",
+  name: 'AppMain',
 })
 export default class AppMain extends Vue {
   scrollTop = 0;
@@ -29,7 +29,7 @@ export default class AppMain extends Vue {
   }
 
   get isMicroApp() {
-    return this.$route.path.startsWith("/main");
+    return this.$route.path.startsWith('/main');
   }
 
   get key() {

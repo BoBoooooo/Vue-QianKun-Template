@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "SvgIcon",
+  name: 'SvgIcon',
   props: {
     iconClass: {
       type: String,
@@ -20,7 +20,7 @@ export default {
     },
     className: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
@@ -31,7 +31,7 @@ export default {
       if (this.className) {
         return `SvgIcon ${this.className}`;
       }
-      return "SvgIcon";
+      return 'SvgIcon';
     },
   },
 };

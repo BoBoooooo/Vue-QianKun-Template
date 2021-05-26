@@ -4,8 +4,8 @@
  * @author: BoBo
  * @Date: 2020年06月22 16:26:22
  */
-declare module "*.vue" {
-  import Vue from "vue";
+declare module '*.vue' {
+  import Vue from 'vue';
 
   export default Vue;
 }

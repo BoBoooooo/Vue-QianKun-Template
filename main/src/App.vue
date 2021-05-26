@@ -19,22 +19,22 @@
 </template>
 
 <script>
-import NProgress from "nprogress";
-import store from "@/store";
-import microApps from "@/router/micro-app";
+import NProgress from 'nprogress';
+import store from '@/store';
+import microApps from '@/router/micro-app';
 
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
       isLoading: true,
       microApps,
-      current: "/sub-vue/",
+      current: '/sub-vue/',
     };
   },
   computed: {
     user() {
-      return store.getGlobalState("user");
+      return store.getGlobalState('user');
     },
     title() {
       return process.env.VUE_APP_NAME;
@@ -59,7 +59,7 @@ export default {
     },
     bindCurrent() {
       const path = window.location.pathname;
-      if (this.microApps.findIndex((item) => item.activeRule === path) >= 0) {
+      if (this.microApps.findIndex(item => item.activeRule === path) >= 0) {
         this.current = path;
       }
     },
@@ -74,14 +74,14 @@ export default {
           return rv;
         };
       };
-      window.history.pushState = _wr("pushState");
+      window.history.pushState = _wr('pushState');
 
-      window.addEventListener("pushState", this.bindCurrent);
-      window.addEventListener("popstate", this.bindCurrent);
+      window.addEventListener('pushState', this.bindCurrent);
+      window.addEventListener('popstate', this.bindCurrent);
 
-      this.$once("hook:beforeDestroy", () => {
-        window.removeEventListener("pushState", this.bindCurrent);
-        window.removeEventListener("popstate", this.bindCurrent);
+      this.$once('hook:beforeDestroy', () => {
+        window.removeEventListener('pushState', this.bindCurrent);
+        window.removeEventListener('popstate', this.bindCurrent);
       });
     },
   },

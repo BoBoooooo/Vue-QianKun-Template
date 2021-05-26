@@ -20,8 +20,7 @@
       <template #columnFormatter="{ row, prop }">
         <el-tag v-if="prop === 'jobno'">{{ row.jobno }}</el-tag>
         <span v-if="prop === 'personname'"
-          ><i class="el-icon el-icon-user" style="color: red"></i
-          >{{ row.personname }}</span
+          ><i class="el-icon el-icon-user" style="color: red"></i>{{ row.personname }}</span
         >
         <el-image
           style="width: 50px; height: 50px"
@@ -40,10 +39,10 @@
 </template>
 
 <script>
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component } from 'vue-property-decorator';
 
 @Component({
-  name: "Person",
+  name: 'Person',
 })
 export default class Person extends Vue {
   getAvatarUrl(row) {

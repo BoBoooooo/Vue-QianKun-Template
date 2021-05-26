@@ -4,7 +4,7 @@
  * @author: BoBo
  * @Date: 2020年08月26 16:14:53
  */
-import axios from "@/plugins/axios";
+import axios from '@/plugins/axios';
 
 /**
  * 获取数据库中所有表名
@@ -13,8 +13,8 @@ import axios from "@/plugins/axios";
  */
 export function getTables() {
   return axios({
-    url: "/form/getTables",
-    method: "post",
+    url: '/form/getTables',
+    method: 'post',
   });
 }
 
@@ -26,8 +26,8 @@ export function getTables() {
  */
 export function getTableDetail(tablename) {
   return axios({
-    url: "/dynamictables/detail",
-    method: "post",
+    url: '/dynamictables/detail',
+    method: 'post',
     params: { tablename },
   });
 }
@@ -38,8 +38,8 @@ export function getTableDetail(tablename) {
  */
 export function getFormDetail(tablename) {
   return axios({
-    url: "/form/detail",
-    method: "post",
+    url: '/form/detail',
+    method: 'post',
     params: { tablename },
   });
 }
@@ -50,8 +50,8 @@ export function getFormDetail(tablename) {
  */
 export function getFormKey(tablename) {
   return axios({
-    url: "/form/getKey",
-    method: "post",
+    url: '/form/getKey',
+    method: 'post',
     params: { tablename },
   });
 }

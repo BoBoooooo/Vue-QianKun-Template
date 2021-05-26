@@ -13,39 +13,26 @@
         :key="item.name"
         :to="{ name: item.children[0].name }"
       >
-        <el-tooltip
-          effect="dark"
-          :content="item.children[0].meta.title"
-          placement="right"
-        >
+        <el-tooltip effect="dark" :content="item.children[0].meta.title" placement="right">
           <el-menu-item :index="item.children[0].name">
             <SvgIcon :icon-class="item.children[0].meta.icon || '系统管理'" />
             {{ item.children[0].meta.title }}
           </el-menu-item>
         </el-tooltip>
       </router-link>
-      <el-submenu
-        v-else-if="!item.meta.hidden && item.children"
-        :index="item.name"
-        :key="item.name"
-      >
+      <el-submenu v-else-if="!item.meta.hidden && item.children" :index="item.name" :key="item.name">
         <template slot="title">
           <SvgIcon :icon-class="item.meta.icon || '系统管理'" />
           {{ item.meta.title }}
         </template>
-        <template v-for="child in item.children.filter((s) => !s.meta.hidden)">
+        <template v-for="child in item.children.filter(s => !s.meta.hidden)">
           <menu-item
             v-if="child.children && child.children.length > 0"
             :key="child.name"
             :routes="[child]"
             class="menu-indent"
           />
-          <router-link
-            v-else
-            :key="child.name"
-            :to="item.path + '/' + child.path"
-            class="menu-indent"
-          >
+          <router-link v-else :key="child.name" :to="item.path + '/' + child.path" class="menu-indent">
             <el-menu-item :index="item.path + '/' + child.path">
               {{ child.meta.title }}
             </el-menu-item>
@@ -57,11 +44,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { RouteConfig } from "vue-router";
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { RouteConfig } from 'vue-router';
 
 @Component({
-  name: "MenuItem",
+  name: 'MenuItem',
 })
 export default class MenuItem extends Vue {
   @Prop({

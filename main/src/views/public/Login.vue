@@ -10,28 +10,14 @@
       <el-col :span="12" class="wallpaper">
         <div @click="redirectToGitHub">
           <svg-icon icon-class="banner" class="banner"></svg-icon>
-          <p class="author">
-            © Awesome QianKun Micro Frontend Template By BoBo
-          </p>
+          <p class="author">© Awesome QianKun Micro Frontend Template By BoBo</p>
         </div>
       </el-col>
       <el-col :span="12">
-        <el-form
-          ref="loginForm"
-          :model="loginForm"
-          class="login-form"
-          auto-complete="on"
-          label-position="left"
-        >
+        <el-form ref="loginForm" :model="loginForm" class="login-form" auto-complete="on" label-position="left">
           <h5 class="title">Welcome 🎯</h5>
           <el-form-item prop="username">
-            <el-input
-              v-model="loginForm.username"
-              name="username"
-              type="text"
-              auto-complete="on"
-              placeholder="admin"
-            />
+            <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="admin" />
           </el-form-item>
           <el-form-item prop="password">
             <el-input
@@ -45,11 +31,7 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button
-              :loading="btnLoginIsLoading"
-              type="default"
-              @click.native.prevent="handleLogin"
-            >
+            <el-button :loading="btnLoginIsLoading" type="default" @click.native.prevent="handleLogin">
               LOGIN
             </el-button>
           </el-form-item>
@@ -64,8 +46,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
       },
 
       btnLoginIsLoading: false,
@@ -79,24 +61,24 @@ export default {
   },
   methods: {
     redirectToGitHub() {
-      window.open("https://github.com/BoBoooooo/BoBo-Vue-Admin", "_blank");
+      window.open('https://github.com/BoBoooooo/BoBo-Vue-Admin', '_blank');
     },
 
     handleLogin() {
       this.btnLoginIsLoading = true;
-      this.$refs.loginForm.validate((valid) => {
+      this.$refs.loginForm.validate(valid => {
         if (!valid) {
           this.btnLoginIsLoading = false;
           return null;
         }
         this.$store
-          .dispatch("setTokenByLogin", this.loginForm)
-          .then((res) => {
+          .dispatch('setTokenByLogin', this.loginForm)
+          .then(res => {
             this.btnLoginIsLoading = false;
             // 进入内部页面
             this.$router
               .push({
-                path: "/",
+                path: '/',
               })
               .catch(() => {});
           })

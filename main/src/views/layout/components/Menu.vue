@@ -45,13 +45,13 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
-import { Getter } from "vuex-class";
-import themeColor from "@/styles/theme";
-import MenuItem from "./MenuItem.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import { Getter } from 'vuex-class';
+import themeColor from '@/styles/theme';
+import MenuItem from './MenuItem.vue';
 
 @Component({
-  name: "Menu",
+  name: 'Menu',
   components: {
     MenuItem,
   },
@@ -68,7 +68,7 @@ export default class Menu extends Vue {
   }
 
   get title() {
-    return "Micro-Qiankun";
+    return 'Micro-Qiankun';
   }
 }
 </script>
@@ -98,7 +98,7 @@ export default class Menu extends Vue {
   }
   .title {
     font-weight: 500;
-    font-family: "YaHei";
+    font-family: 'YaHei';
     font-size: 20px;
   }
   .icon {

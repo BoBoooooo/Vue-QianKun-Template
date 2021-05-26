@@ -1,14 +1,6 @@
 <template>
-  <div
-    ref="scrollContainer"
-    class="scroll-container"
-    @wheel.prevent="handleScroll"
-  >
-    <div
-      ref="scrollWrapper"
-      :style="{ left: left + 'px' }"
-      class="scroll-wrapper"
-    >
+  <div ref="scrollContainer" class="scroll-container" @wheel.prevent="handleScroll">
+    <div ref="scrollWrapper" :style="{ left: left + 'px' }" class="scroll-wrapper">
       <slot />
     </div>
   </div>
@@ -18,7 +10,7 @@
 const padding = 15; // tag's padding
 
 export default {
-  name: "ScrollPane",
+  name: 'ScrollPane',
   data() {
     return {
       left: 0,
@@ -39,10 +31,7 @@ export default {
           // eslint-disable-next-line no-self-assign
           this.left = this.left;
         } else {
-          this.left = Math.max(
-            this.left + eventDelta,
-            $containerWidth - $wrapperWidth - padding
-          );
+          this.left = Math.max(this.left + eventDelta, $containerWidth - $wrapperWidth - padding);
         }
       } else {
         this.left = 0;

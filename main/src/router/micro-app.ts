@@ -1,27 +1,27 @@
-import store from "../store";
+import store from '../store';
 
 const microApps = [
   {
-    name: "sub-vue",
+    name: 'sub-vue',
     entry: process.env.VUE_APP_SUB_VUE,
-    activeRule: "/main/sub-vue",
+    activeRule: '/main/sub-vue',
   },
   {
-    name: "sub-react",
+    name: 'sub-react',
     entry: process.env.VUE_APP_SUB_REACT,
-    activeRule: "/main/sub-react",
+    activeRule: '/main/sub-react',
   },
   {
-    name: "sub-vue3",
+    name: 'sub-vue3',
     entry: process.env.VUE_APP_SUB_VUE3,
-    activeRule: "/main/sub-vue3",
+    activeRule: '/main/sub-vue3',
   },
 ];
 
-const apps = microApps.map((item) => {
+const apps = microApps.map(item => {
   return {
     ...item,
-    container: "#subapp-viewport", // 子应用挂载的div
+    container: '#subapp-viewport', // 子应用挂载的div
     props: {
       routerBase: item.activeRule, // 下发基础路由
       getGlobalState: (store as any).getGlobalState, // 下发getGlobalState方法

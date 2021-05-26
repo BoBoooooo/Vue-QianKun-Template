@@ -4,7 +4,7 @@
  * @copyright BoBo
  * @createDate 2018年11月13日20:35:59
  */
-import getSystemConfig from "@/api/system/config";
+import getSystemConfig from '@/api/system/config';
 
 const app = {
   state: {
@@ -14,17 +14,17 @@ const app = {
     },
     config: {
       // 密码长度
-      passwordLength: "",
+      passwordLength: '',
       // 客户端超时时间(分钟)
-      clientTimeOut: "",
+      clientTimeOut: '',
       // 初始密码
-      initialPassword: "",
+      initialPassword: '',
       // 系统名称
-      systemName: "",
+      systemName: '',
     },
   },
   mutations: {
-    TOGGLE_SIDEBAR: (state) => {
+    TOGGLE_SIDEBAR: state => {
       if (state.sidebar.opened) {
         state.sidebar.opened = 1;
       } else {
@@ -38,7 +38,7 @@ const app = {
   },
   actions: {
     ToggleSideBar: ({ commit }) => {
-      commit("TOGGLE_SIDEBAR");
+      commit('TOGGLE_SIDEBAR');
     },
     // 初始化系统配置
     initSystemConfig: async ({ commit }) => {
@@ -46,14 +46,14 @@ const app = {
         data: { list },
       } = await getSystemConfig();
       const config = {
-        systemName: "",
+        systemName: '',
       };
-      list.forEach((k) => {
+      list.forEach(k => {
         const { codeValue, remark } = k;
         config[remark] = codeValue;
       });
 
-      commit("SET_CONFIG", config);
+      commit('SET_CONFIG', config);
       return config;
     },
   },

@@ -17,17 +17,10 @@
         @contextmenu.prevent.native="openMenu(tag, $event)"
       >
         {{ tag.title }}
-        <span
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        />
+        <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </scroll-pane>
-    <ul
-      v-show="visible"
-      :style="{ left: left + 'px', top: top + 'px' }"
-      class="contextmenu"
-    >
+    <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
       <li @click="closeSelectedTag(selectedTag)">关闭当前</li>
       <li @click="closeOthersTags">关闭其他</li>
       <li @click="closeAllTags">关闭全部</li>
@@ -36,12 +29,12 @@
 </template>
 
 <script>
-import ScrollPane from "@/components/ScrollPane/index.vue";
+import ScrollPane from '@/components/ScrollPane/index.vue';
 
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
-  name: "TagsView",
+  name: 'TagsView',
   components: {
     ScrollPane,
   },
@@ -68,10 +61,10 @@ export default class TagsView extends Vue {
   }
 
   toggleSideBar() {
-    this.$store.dispatch("ToggleSideBar");
+    this.$store.dispatch('ToggleSideBar');
     // 侧边栏隐藏后要重新触发resize让图表自适应
     setTimeout(() => {
-      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event('resize'));
     }, 250);
   }
 
@@ -91,7 +84,7 @@ export default class TagsView extends Vue {
     if (!route) {
       return false;
     }
-    this.$store.dispatch("addVisitedViews", route);
+    this.$store.dispatch('addVisitedViews', route);
     return null;
   }
 
@@ -108,14 +101,14 @@ export default class TagsView extends Vue {
   }
 
   closeSelectedTag(view) {
-    this.$store.dispatch("delVisitedViews", view).then((views) => {
+    this.$store.dispatch('delVisitedViews', view).then(views => {
       if (this.isActive(view)) {
         const latestView = views.slice(-1)[0];
         if (latestView) {
           // 打开最后访问的选项卡
           this.$router.push(latestView.path);
         } else {
-          this.$router.push("/");
+          this.$router.push('/');
         }
       }
     });
@@ -123,14 +116,14 @@ export default class TagsView extends Vue {
 
   closeOthersTags() {
     this.$router.push(this.selectedTag.path);
-    this.$store.dispatch("delOthersViews", this.selectedTag).then(() => {
+    this.$store.dispatch('delOthersViews', this.selectedTag).then(() => {
       this.moveToCurrentTag();
     });
   }
 
   closeAllTags() {
-    this.$store.dispatch("delAllViews");
-    this.$router.push("/");
+    this.$store.dispatch('delAllViews');
+    this.$router.push('/');
   }
 
   openMenu(tag, e) {
@@ -148,18 +141,18 @@ export default class TagsView extends Vue {
     this.visible = false;
   }
 
-  @Watch("$route")
+  @Watch('$route')
   routerChange() {
     this.addViewTags();
     this.moveToCurrentTag();
   }
 
-  @Watch("$visible")
+  @Watch('$visible')
   visibleChange(value) {
     if (value) {
-      window.addEventListener("click", this.closeMenu);
+      window.addEventListener('click', this.closeMenu);
     } else {
-      window.removeEventListener("click", this.closeMenu);
+      window.removeEventListener('click', this.closeMenu);
     }
   }
 }

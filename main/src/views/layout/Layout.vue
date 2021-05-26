@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
-import { AppMain, Header, Menu } from "./components";
+import { Component, Vue } from 'vue-property-decorator';
+import { AppMain, Header, Menu } from './components';
 
 @Component({
-  name: "Layout",
+  name: 'Layout',
   components: {
     AppMain,
     Header,
