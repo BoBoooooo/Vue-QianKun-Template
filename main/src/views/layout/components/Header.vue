@@ -33,8 +33,11 @@
       <!-- <Breadcrumb></Breadcrumb> -->
 
       <div class="header-right-container">
-        <el-button type="primary" size="mini" @click="updateGlobalState">更新全局状态</el-button>
-        <el-tag style="margin: 0 10px"> {{ user }}</el-tag>
+        <span
+          >当前基座中的姓名为:
+          <el-tag size="medium" type="danger" style="margin: 0 10px"> {{ user.name }}</el-tag></span
+        >
+        <el-button type="primary" size="medium" @click="updateGlobalState">更新全局状态</el-button>
         <!-- 姓名及下拉菜单 -->
         <div class="user-container">
           <img :src="photo" v-if="photo" class="photo" @click="showCard" />
@@ -103,7 +106,7 @@ export default class Header extends Vue {
         name: '李四',
       },
     });
-    this.$message.success('姓名已更新');
+    this.$message.success('姓名已更新为李四');
   }
 }
 </script>

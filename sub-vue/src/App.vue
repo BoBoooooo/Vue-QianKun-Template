@@ -6,7 +6,8 @@
       <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <a href="#" @click="gotoSubReact" style="marin: 0 0 0 10px">跳转到 子应用 sub-react</a>
     </div>
-    <el-tag>从vuex的global module的state： {{ JSON.stringify(user) }}</el-tag>
+    <h3>当前sub-vue vuex中global module的state为</h3>
+    <h3 style="color: red">{{ user }}</h3>
   </div>
 </template>
 

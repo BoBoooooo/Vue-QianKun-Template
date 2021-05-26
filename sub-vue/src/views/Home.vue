@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Sub-Vue 子应用1" />
+    <HelloWorld msg="Sub-Vue 子应用" />
   </div>
 </template>
 

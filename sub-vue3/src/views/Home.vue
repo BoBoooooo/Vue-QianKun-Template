@@ -30,7 +30,7 @@
 <script>
 import { ref, computed } from 'vue';
 import { useStore } from 'vuex';
-import { ElMessageBox } from 'element-plus';
+import { ElMessage, ElMessageBox } from 'element-plus';
 
 export default {
   name: 'Home',
@@ -49,6 +49,7 @@ export default {
         },
       });
       inputValue.value = '';
+      ElMessage.success('姓名已更新为' + inputValue.value);
     };
 
     const handleClose = done => {
