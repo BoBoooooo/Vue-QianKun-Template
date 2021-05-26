@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     gotoSubReact() {
-      history.pushState(null, 'sub-react', '/subapp/sub-react');
+      history.pushState(null, 'sub-react', '/app/sub-react');
     },
   },
 };

@@ -14,7 +14,7 @@ Vue.use(Router);
 
 // 子应用转成路由格式拼接至路由表
 const microRouterMap = microRouter.map(micro => ({
-  path: '/subapp',
+  path: '/app',
   component: Layout,
   name: micro.name,
   meta: {
@@ -23,7 +23,7 @@ const microRouterMap = microRouter.map(micro => ({
   redirect: micro.activeRule,
   children: [
     {
-      path: micro.activeRule.replace('/subapp/', ''),
+      path: micro.activeRule.replace('/app/', ''),
       name: `${micro.name}-index`,
       meta: { title: micro.name },
     },
@@ -59,7 +59,7 @@ const constantRouterMap = [
     component: () => import('@/views/public/404.vue'),
   },
   {
-    path: '/subapp/*',
+    path: '/app/*',
     name: 'Layout',
     meta: { hidden: true },
     component: Layout,

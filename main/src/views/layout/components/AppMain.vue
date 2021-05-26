@@ -29,7 +29,7 @@ export default class AppMain extends Vue {
   }
 
   get isMicroApp() {
-    return this.$route.path.startsWith('/subapp');
+    return this.$route.path.startsWith('/app');
   }
 
   get key() {

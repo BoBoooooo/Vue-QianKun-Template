@@ -26,6 +26,8 @@ npm start
 
 # 部署
 
+[同域部署问题参考这个issue](https://github.com/umijs/qiankun/issues/400)
+
 - build
 
 ```javascript

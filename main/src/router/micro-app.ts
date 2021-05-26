@@ -1,20 +1,22 @@
+// https://github.com/umijs/qiankun/issues/400
+// 同域部署问题
 import store from '../store';
 
 const microApps = [
   {
     name: 'sub-vue',
     entry: process.env.VUE_APP_SUB_VUE,
-    activeRule: '/subapp/sub-vue',
+    activeRule: '/app/sub-vue',
   },
   {
     name: 'sub-react',
     entry: process.env.VUE_APP_SUB_REACT,
-    activeRule: '/subapp/sub-react',
+    activeRule: '/app/sub-react',
   },
   {
     name: 'sub-vue3',
     entry: process.env.VUE_APP_SUB_VUE3,
-    activeRule: '/subapp/sub-vue3',
+    activeRule: '/app/sub-vue3',
   },
 ];
 

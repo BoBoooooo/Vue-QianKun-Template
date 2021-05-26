@@ -43,6 +43,6 @@ const apps = microApps.map(item => {
 });
 
 registerMicroApps(apps);
-// setDefaultMountApp('/subapp/sub-vue');
+// setDefaultMountApp('/app/sub-vue');
 // 此处在AppMain.vue中异步触发start挂载
 // start();
