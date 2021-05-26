@@ -25,6 +25,8 @@
     "vuex-class": "^0.3.2"
   },
   "devDependencies": {
+    "html-webpack-include-assets-plugin": "^2.0.0",
+    "compression-webpack-plugin": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "@vue/cli-plugin-babel": "~4.5.0",
