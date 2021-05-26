@@ -11,12 +11,14 @@ function resolve(dir) {
 }
 
 module.exports = {
+  // 打包时项目名称
+  outputDir: process.env.VUE_APP_OUTPUTDIR,
   // 生产环境打包时不启用SourceMap
   productionSourceMap: false,
-  // transpileDependencies: ["common"],
+  transpileDependencies: ['common'],
   // 开发阶段服务器配置
   devServer: {
-    port: process.env.PORT ? +process.env.PORT : 80,
+    port: process.env.VUE_APP_PORT,
   },
   chainWebpack: config => {
     config.resolve.alias.set('@', resolve('src'));

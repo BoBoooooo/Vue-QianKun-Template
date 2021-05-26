@@ -1,13 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { name } = require('./package.json');
 
-const port = 7779; // dev port
-
 module.exports = {
   publicPath: '/subapp/sub-vue3',
-  filenameHashing: true,
+  // 打包时项目名称
+  outputDir: process.env.VUE_APP_OUTPUTDIR,
+  // 生产环境打包时不启用SourceMap
+  productionSourceMap: false,
+  transpileDependencies: ['common'],
+  // filenameHashing: true,
   devServer: {
-    port,
+    port: process.env.VUE_APP_PORT,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

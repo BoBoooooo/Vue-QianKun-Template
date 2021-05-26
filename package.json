@@ -20,6 +20,11 @@
     "start:sub-react": "cd sub-react && npm start",
     "start:sub-vue": "cd sub-vue && npm start",
     "start:sub-vue3": "cd sub-vue3 && npm start",
+    "build": "npm-run-all --parallel start:*",
+    "build:main": "cd main && npm run build",
+    "build:sub-react": "cd sub-react && npm run build",
+    "build:sub-vue": "cd sub-vue && npm run build",
+    "build:sub-vue3": "cd sub-vue3 && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
