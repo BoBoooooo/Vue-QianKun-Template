@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { name } = require('./package.json');
 
 const port = 7779; // dev port

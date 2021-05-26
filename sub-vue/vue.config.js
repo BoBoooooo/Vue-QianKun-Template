@@ -1,4 +1,4 @@
-const { name } = require('../package.json')
+const { name } = require('../package.json');
 
 module.exports = {
   publicPath: '/subapp/sub-vue',
@@ -9,13 +9,21 @@ module.exports = {
       // 把子应用打包成 umd 库格式
       library: `${name}-[name]`,
       libraryTarget: 'umd',
-      jsonpFunction: `webpackJsonp_${name}`
-    }
+      jsonpFunction: `webpackJsonp_${name}`,
+    },
   },
   devServer: {
     port: process.env.VUE_APP_PORT,
     headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
-  }
-}
+      'Access-Control-Allow-Origin': '*',
+    },
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        // eslint-disable-next-line global-require
+        implementation: require('sass'), // This line must in sass option
+      },
+    },
+  },
+};
