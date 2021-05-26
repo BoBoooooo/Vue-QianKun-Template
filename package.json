@@ -1,7 +1,9 @@
 {
-  "name": "qiankun-example",
+  "name": "vue-qiankun-template",
   "version": "0.0.1",
-  "description": "qiankun demo",
+  "author": "BoBo<boboooooo159@gmail.com>",
+  "license": "MIT",
+  "description": "vue-qiankun-template",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -19,7 +21,5 @@
     "start:sub-vue": "cd sub-vue && npm start",
     "start:sub-vue3": "cd sub-vue3 && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "BoBo<boboooooo159@gmail.com>",
-  "license": "MIT"
+  }
 }
