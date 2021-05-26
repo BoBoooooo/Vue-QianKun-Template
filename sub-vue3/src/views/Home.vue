@@ -45,7 +45,7 @@ export default {
     const handleVuexMsgChange = () => {
       store.dispatch('global/setGlobalState', {
         user: {
-          name: formMsg.value,
+          name: inputValue.value,
         },
       });
       inputValue.value = '';

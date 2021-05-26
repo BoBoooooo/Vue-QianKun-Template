@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
       <a href="#" @click="gotoSubReact" style="marin: 0 0 0 10px">跳转到 子应用 sub-react</a>
     </div>
-    <h3>
-      从vuex的global module的state： {{ JSON.stringify(user) }}
-    </h3>
-    <router-view/>
+    <h3>从vuex的global module的state： {{ JSON.stringify(user) }}</h3>
+    <router-view />
   </div>
 </template>
 
@@ -16,16 +13,16 @@
 // import { mapState } from 'vuex'
 export default {
   computed: {
-    user () {
-      return this.$store.state.global.user.name
-    }
+    user() {
+      return this.$store.state.global.user.name;
+    },
   },
   methods: {
-    gotoSubReact () {
-      history.pushState(null, 'sub-react', '/main/sub-react')
-    }
-  }
-}
+    gotoSubReact() {
+      history.pushState(null, 'sub-react', '/main/sub-react');
+    },
+  },
+};
 </script>
 
 <style>
@@ -49,5 +46,4 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
 </style>
