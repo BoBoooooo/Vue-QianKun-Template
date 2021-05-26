@@ -11,7 +11,7 @@ import microRouter from '@/router/micro-app';
 import Person from '@/views/person/Person.vue';
 
 const microRouterMap = microRouter.map(micro => ({
-  path: '/main',
+  path: '/subapp',
   component: Layout,
   name: micro.name,
   meta: {
@@ -20,7 +20,7 @@ const microRouterMap = microRouter.map(micro => ({
   redirect: micro.activeRule,
   children: [
     {
-      path: micro.activeRule.replace('/main/', ''),
+      path: micro.activeRule.replace('/subapp/', ''),
       name: `${micro.name}-index`,
       meta: { title: micro.name },
     },
@@ -48,7 +48,7 @@ const constantRouterMap = [
     component: () => import('@/views/public/404.vue'),
   },
   {
-    path: '/main/*',
+    path: '/subapp/*',
     name: 'Layout',
     meta: { hidden: true },
     component: Layout,

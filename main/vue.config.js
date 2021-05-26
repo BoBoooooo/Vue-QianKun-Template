@@ -11,7 +11,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: './',
   // 生产环境打包时不启用SourceMap
   productionSourceMap: false,
   // transpileDependencies: ["common"],

@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     gotoSubReact() {
-      history.pushState(null, 'sub-react', '/main/sub-react');
+      history.pushState(null, 'sub-react', '/subapp/sub-react');
     },
   },
 };

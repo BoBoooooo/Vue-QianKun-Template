@@ -4,17 +4,17 @@ const microApps = [
   {
     name: 'sub-vue',
     entry: process.env.VUE_APP_SUB_VUE,
-    activeRule: '/main/sub-vue',
+    activeRule: '/subapp/sub-vue',
   },
   {
     name: 'sub-react',
     entry: process.env.VUE_APP_SUB_REACT,
-    activeRule: '/main/sub-react',
+    activeRule: '/subapp/sub-react',
   },
   {
     name: 'sub-vue3',
     entry: process.env.VUE_APP_SUB_VUE3,
-    activeRule: '/main/sub-vue3',
+    activeRule: '/subapp/sub-vue3',
   },
 ];
 
