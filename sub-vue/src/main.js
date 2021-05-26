@@ -5,8 +5,12 @@ import routes from './router';
 import { store as commonStore } from 'common';
 import store from './store';
 import VueRouter from 'vue-router';
+import Element from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
+Vue.use(Element);
+
 let instance = null;
 
 function render(props = {}) {
@@ -29,13 +33,11 @@ function render(props = {}) {
 
 if (!window.__POWERED_BY_QIANKUN__) {
   // 这里是子应用独立运行的环境，实现子应用的登录逻辑
-
   // 独立运行时，也注册一个名为global的store module
   commonStore.globalRegister(store);
   // 模拟登录后，存储用户信息到global module
   const userInfo = { name: '我是独立运行时名字叫张三' }; // 假设登录后取到的用户信息
   store.commit('global/setGlobalState', { user: userInfo });
-
   render();
 }
 
