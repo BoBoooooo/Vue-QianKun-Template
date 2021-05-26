@@ -41,7 +41,7 @@ function filterAsyncRouter(routerMap, roles) {
 
 const permission = {
   state: {
-    routers: [...microRouterMap, ...constantRouterMap],
+    routers: [...constantRouterMap, ...microRouterMap],
     addRouters: [],
     menuNum: {},
   },

@@ -6,7 +6,6 @@
  */
 import { login, getInfo, update } from '@/api/user';
 import { MessageBox } from 'element-ui';
-import { router } from '@/router';
 
 const user = {
   state: {
@@ -84,7 +83,6 @@ const user = {
     // 删除客户端和服务端Token
     async clearToken({ commit }) {
       commit('SET_TOKEN', null);
-      router.push('/login');
       window.location.reload();
     },
     // 客户端timeOut

@@ -1,19 +1,5 @@
 <template>
   <div class="layout-wrapper">
-    <!-- <div class="layout-header">
-      <div class="logo">{{title}}</div>
-      <ul class="sub-apps">
-        <li
-          v-for="item in microApps"
-          :class="{ active: item.activeRule === current }"
-          :key="item.name"
-          @click="goto(item)"
-        >
-          {{ item.name }}
-        </li>
-      </ul>
-      <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
-    </div> -->
     <router-view></router-view>
   </div>
 </template>
@@ -21,15 +7,12 @@
 <script>
 import NProgress from 'nprogress';
 import store from '@/store';
-import microApps from '@/router/micro-app';
 
 export default {
   name: 'App',
   data() {
     return {
       isLoading: true,
-      microApps,
-      current: '/sub-vue/',
     };
   },
   computed: {
@@ -52,45 +35,8 @@ export default {
     },
   },
   components: {},
-  methods: {
-    goto(item) {
-      window.history.pushState(null, item.activeRule, item.activeRule);
-      // this.current = item.name
-    },
-    bindCurrent() {
-      const path = window.location.pathname;
-      if (this.microApps.findIndex(item => item.activeRule === path) >= 0) {
-        this.current = path;
-      }
-    },
-    listenRouterChange() {
-      const _wr = function F(type) {
-        const orig = window.history[type];
-        return function F_(...args) {
-          const rv = orig.apply(this, args);
-          const e = new Event(type);
-          e.arguments = args;
-          window.dispatchEvent(e);
-          return rv;
-        };
-      };
-      window.history.pushState = _wr('pushState');
-
-      window.addEventListener('pushState', this.bindCurrent);
-      window.addEventListener('popstate', this.bindCurrent);
-
-      this.$once('hook:beforeDestroy', () => {
-        window.removeEventListener('pushState', this.bindCurrent);
-        window.removeEventListener('popstate', this.bindCurrent);
-      });
-    },
-  },
   created() {
-    this.bindCurrent();
     NProgress.start();
-  },
-  mounted() {
-    this.listenRouterChange();
   },
 };
 </script>

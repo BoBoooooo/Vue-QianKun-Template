@@ -6,7 +6,9 @@
  */
 
 import store from '@/store/index';
+import NProgress from 'nprogress';
 import { router } from './router';
+
 // 白名单：不需要鉴权的地址
 const whiteList = ['/login'];
 
@@ -40,4 +42,8 @@ router.beforeEach(async (to, from, next) => {
     // 如果不存在Token & 当前地址不在白名单内
     next('/login');
   }
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });

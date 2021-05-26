@@ -15,14 +15,14 @@
       >
         <el-tooltip effect="dark" :content="item.children[0].meta.title" placement="right">
           <el-menu-item :index="item.children[0].name">
-            <SvgIcon :icon-class="item.children[0].meta.icon || '系统管理'" />
+            <SvgIcon :icon-class="item.children[0].meta.icon || 'normal'" />
             {{ item.children[0].meta.title }}
           </el-menu-item>
         </el-tooltip>
       </router-link>
       <el-submenu v-else-if="!item.meta.hidden && item.children" :index="item.name" :key="item.name">
         <template slot="title">
-          <SvgIcon :icon-class="item.meta.icon || '系统管理'" />
+          <SvgIcon :icon-class="item.meta.icon || 'normal'" />
           {{ item.meta.title }}
         </template>
         <template v-for="child in item.children.filter(s => !s.meta.hidden)">

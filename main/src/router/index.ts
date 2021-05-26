@@ -10,6 +10,9 @@ import Layout from '@/views/layout/Layout.vue';
 import microRouter from '@/router/micro-app';
 import Person from '@/views/person/Person.vue';
 
+Vue.use(Router);
+
+// 子应用转成路由格式拼接至路由表
 const microRouterMap = microRouter.map(micro => ({
   path: '/subapp',
   component: Layout,
@@ -27,13 +30,21 @@ const microRouterMap = microRouter.map(micro => ({
   ],
 }));
 
-Vue.use(Router);
-
+// 基座路由
 const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    meta: { hidden: true },
+    redirect: '/dashboard',
+    meta: { hidden: false },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        meta: { hidden: false, title: '首页', icon: '首页' },
+        component: () => import('@/views/dashboard/Dashboard.vue'),
+      },
+    ],
   },
   {
     path: '/login',
@@ -79,17 +90,7 @@ const constantRouterMap = [
 
 const router = new Router({
   mode: 'history',
-  routes: [...microRouterMap, ...constantRouterMap],
-});
-
-/* 路由异常错误处理，尝试解析一个异步组件时发生错误，重新渲染目标页面 */
-router.onError(error => {
-  const pattern = /Loading chunk (\d)+ failed/g;
-  const isChunkLoadFailed = error.message.match(pattern);
-  const targetPath = (router as any).history.pending.fullPath;
-  if (isChunkLoadFailed) {
-    router.replace(targetPath);
-  }
+  routes: [...constantRouterMap, ...microRouterMap], // 拼接基座路由和子应用路由
 });
 
 export { router, constantRouterMap, microRouterMap };
