@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./styles/index.scss";
 import dva from "dva";
 import { createBrowserHistory } from "history";
+import "antd/dist/antd.css";
 
 let app;
 function render() {

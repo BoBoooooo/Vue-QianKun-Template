@@ -1,21 +1,18 @@
 export default {
- 
-    namespace: 'aaa',
-  
-    state: {
-      name:'这是aaa的model'
+  namespace: "hello",
+
+  state: {
+    count: 1,
+  },
+
+  subscriptions: {},
+
+  effects: {},
+
+  reducers: {
+    add(state) {
+      const newCurrent = state.count + 1;
+      return { ...state, count: newCurrent };
     },
-  
-    subscriptions: {
-      
-    },
-  
-    effects: {
-      
-    },
-  
-    reducers: {
-      
-    },
-  
-  };
+  },
+};

@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import styles from "../styles/app.module.scss";
 import { Link } from "dva/router";
 import Antd from "./Antd";
-function App() {
+const App = () => {
   return (
     <div className={styles.App}>
       <img src={logo} className={styles.logo} alt="logo" />
@@ -13,6 +13,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

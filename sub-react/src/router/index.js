@@ -26,7 +26,7 @@ const menuGlobal = [
     name: "Test页面",
     icon: "user",
     path: "/test",
-    models: () => [import("../models/Test")], //models可多个
+    models: () => [import("../models/Test"), import("../models/Hello")], //models可多个
     component: () => import("../views/Test"),
   },
 ];

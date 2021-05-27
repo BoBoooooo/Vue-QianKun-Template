@@ -1,21 +1,13 @@
 export default {
- 
-    namespace: 'bbb',
-  
-    state: {
-      name:'这是bbb的model'
-    },
-  
-    subscriptions: {
-      
-    },
-  
-    effects: {
-      
-    },
-  
-    reducers: {
-      
-    },
-  
-  };
+  namespace: "test",
+
+  state: {
+    name: "这里是Test的state",
+  },
+
+  subscriptions: {},
+
+  effects: {},
+
+  reducers: {},
+};
