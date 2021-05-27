@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-import styles from "../styles/app.module.css";
+import styles from "../styles/app.module.scss";
 import { Link } from "dva/router";
 import Antd from "./Antd";
 function App() {
