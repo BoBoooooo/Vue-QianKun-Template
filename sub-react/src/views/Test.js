@@ -3,10 +3,9 @@ import { Link } from "dva/router";
 
 function Test() {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <p>Test</p>
-      <Link to={"/"}>返回</Link> 
-
+      <Link to={"/"}>返回</Link>
     </div>
   );
 }

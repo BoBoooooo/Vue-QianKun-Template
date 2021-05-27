@@ -5,7 +5,7 @@ import { Link } from "dva/router";
 import Antd from "./Antd";
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <img src={logo} className={styles.logo} alt="logo" />
       <div>
         <Link to={"/hello"}>Hello</Link> |<Link to={"/test"}>Test</Link>
