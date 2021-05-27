@@ -16,7 +16,8 @@ const Antd = () => {
   };
   return (
     <ConfigProvider locale={zhCN}>
-      <div style={{ width: 400, margin: "100px auto" }}>
+      <div>
+        <h2>嵌套子组件示例</h2>
         <DatePicker onChange={handleChange} />
         <div style={{ marginTop: 16 }}>
           当前日期：{date ? date.format("YYYY年MM月DD日") : "未选择"}

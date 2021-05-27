@@ -21,6 +21,9 @@ function render() {
   app.router(require("./router").default);
 
   app.start("#root");
+
+  // https://github.com/dvajs/dva/issues/2335
+  window.g_app = app;
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -37,8 +40,27 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-  console.log(props);
   render();
+  // 获取全局dva store实例
+  const store = window.g_app._store;
+  // 需要初始化子应用的app model,初始值即为当前基座getGlobalState的全局状态
+  // 并且在基座更新时同步更新model中的数据
+  props.onGlobalStateChange((newState, prev) => {
+    console.log(
+      "sub-react change",
+      JSON.stringify(newState),
+      JSON.stringify(prev)
+    );
+    store.dispatch({
+      type: "app/setGlobalState",
+      payload: {
+        ...newState,
+        global: {
+          ...props,
+        },
+      },
+    });
+  }, true);
 }
 /**
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
