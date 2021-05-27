@@ -9,7 +9,7 @@ const menuGlobal = [
     name: "App页",
     icon: "user",
     path: "/",
-    component: () => import("../views/App"),
+    component: () => import("../views/App.tsx"),
   },
   {
     id: "hello",
@@ -17,8 +17,8 @@ const menuGlobal = [
     name: "Hello页面",
     icon: "user",
     path: "/hello",
-    models: () => [import("../models/Hello")], //models可多个
-    component: () => import("../views/Hello"),
+    models: () => [import("../models/Hello.ts")], //models可多个
+    component: () => import("../views/Hello.tsx"),
   },
   {
     id: "test",
@@ -26,8 +26,8 @@ const menuGlobal = [
     name: "Test页面",
     icon: "user",
     path: "/test",
-    models: () => [import("../models/Test"), import("../models/Hello")], //models可多个
-    component: () => import("../views/Test"),
+    models: () => [import("../models/Test.ts"), import("../models/Hello.ts")], //models可多个
+    component: () => import("../views/Test.tsx"),
   },
 ];
 

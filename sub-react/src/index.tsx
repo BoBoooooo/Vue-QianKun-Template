@@ -16,7 +16,7 @@ function render() {
 
   // app.use({});
 
-  app.model(require("./models/App").default);
+  app.model(require("./models/App.ts").default);
 
   app.router(require("./router").default);
 
@@ -66,7 +66,7 @@ export async function mount(props) {
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
  */
 export async function unmount() {
-  ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+  ReactDOM.unmountComponentAtNode((document as any).getElementById("root"));
 }
 /**
  * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
