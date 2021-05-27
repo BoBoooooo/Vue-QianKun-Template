@@ -1,6 +1,6 @@
 import "./public-path";
 import ReactDOM from "react-dom";
-import "./styles/index.css";
+import "./styles/index.scss";
 import dva from "dva";
 import { createBrowserHistory } from "history";
 
