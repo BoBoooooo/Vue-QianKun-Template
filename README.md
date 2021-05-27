@@ -34,6 +34,8 @@ npm start
 npm run build
 ```
 
+集成了`compression`插件支持输出所有项目build文件至根目录`dist.zip`
+
 - 拷贝 main 和相应 subapp 文件至 nginx 下
 
 ```javascript
