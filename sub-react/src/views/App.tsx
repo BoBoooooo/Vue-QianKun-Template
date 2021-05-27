@@ -12,7 +12,7 @@ const App = ({ app }) => {
   };
   const [name, setName] = useState(app.user.name);
   const changeGlobalState = () => {
-    app.global.setGlobalState({
+    app?.global?.setGlobalState?.({
       user: {
         name,
       },

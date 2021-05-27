@@ -11,11 +11,24 @@
     "lib": [
       "dom",
       "es7"
-    ]
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false
   },
   "exclude": [
     "node_modules",
     "lib",
     "es"
+  ],
+  "include": [
+    "src"
   ]
 }
