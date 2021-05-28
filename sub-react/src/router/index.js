@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "dva/router";
 import dynamic from "dva/dynamic";
+import NotFound from "../pages/404";
 
 const menuGlobal = [
   {
@@ -9,7 +10,7 @@ const menuGlobal = [
     name: "App页",
     icon: "user",
     path: "/",
-    component: () => import("../views/App.tsx"),
+    component: () => import("../pages/App.tsx"),
   },
   {
     id: "hello",
@@ -18,7 +19,7 @@ const menuGlobal = [
     icon: "user",
     path: "/hello",
     models: () => [import("../models/Hello.ts")], //models可多个
-    component: () => import("../views/Hello.tsx"),
+    component: () => import("../pages/Hello.tsx"),
   },
   {
     id: "test",
@@ -27,7 +28,7 @@ const menuGlobal = [
     icon: "user",
     path: "/test",
     models: () => [import("../models/Test.ts"), import("../models/Hello.ts")], //models可多个
-    component: () => import("../views/Test.tsx"),
+    component: () => import("../pages/Test.tsx"),
   },
 ];
 
@@ -46,6 +47,8 @@ function RouterConfig({ history, app }) {
             })}
           />
         ))}
+        {/* 未匹配到页面重定向到404 */}
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );
