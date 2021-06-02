@@ -1,0 +1,10 @@
+{
+  "npmClient": "cnpm",
+  "version": "0.0.1",
+  "packages": [
+    "main/*",
+    "sub-react/*",
+    "sub-vue/*",
+    "sub-vue3/*"
+  ]
+}
