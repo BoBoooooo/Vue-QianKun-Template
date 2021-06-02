@@ -13,10 +13,10 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "install": "lerna bootstrap",
     "clean": "lerna clean",
     "start": "lerna run start",
-    "build": "lerna run build && node ./build/compression.js",
+    "build": "lerna run build --parallel && node ./build/compression.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "__npminstall_done": false
