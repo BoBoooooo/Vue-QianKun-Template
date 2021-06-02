@@ -13,8 +13,6 @@
 
 # 开始使用
 
-根目录集成了`npm-run-all`,支持一键执行子项目的 script 命令。
-
 ```javascript
 npm run install
 npm start
