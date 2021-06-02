@@ -15,7 +15,7 @@
   "scripts": {
     "install": "lerna bootstrap",
     "clean": "lerna clean",
-    "start": "lerna run start",
+    "start": "lerna run start --parallel",
     "build": "lerna run build --parallel && node ./build/compression.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

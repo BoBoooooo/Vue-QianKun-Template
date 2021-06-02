@@ -2,7 +2,7 @@
   "name": "sub-react",
   "version": "0.1.0",
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "CI=true react-app-rewired start",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject"
   },
