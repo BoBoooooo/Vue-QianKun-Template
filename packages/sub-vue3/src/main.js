@@ -3,7 +3,7 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from '@/App.vue';
 import store from '@/store';
-import { store as commonStore } from '../../common';
+import { store as commonStore } from '../../common/src';
 import routers from '@/router';
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';

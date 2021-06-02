@@ -1,23 +1,10 @@
 {
   "name": "sub-react",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "dependencies": {
     "antd": "^4.16.0",
@@ -37,5 +24,17 @@
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
     "typescript": "^4.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

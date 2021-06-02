@@ -10,22 +10,13 @@
   },
   "devDependencies": {
     "compressing": "^1.4.0",
-    "lerna": "^4.0.0",
-    "npm-run-all": "^4.1.5"
+    "lerna": "^4.0.0"
   },
   "scripts": {
-    "clean": "lerna run clean",
-    "clean:modules": "lerna clean -y && lerna run clean",
-    "start": "lerna run start --parallel --stream",
-    "start:main": "cd main && npm start",
-    "start:sub-react": "cd sub-react && npm start",
-    "start:sub-vue": "cd sub-vue && npm start",
-    "start:sub-vue3": "cd sub-vue3 && npm start",
-    "build": "npm-run-all --parallel build:* && node ./build/compression.js",
-    "build:main": "cd main && npm run build",
-    "build:sub-react": "cd sub-react && npm run build",
-    "build:sub-vue": "cd sub-vue && npm run build",
-    "build:sub-vue3": "cd sub-vue3 && npm run build",
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "start": "lerna run start",
+    "build": "lerna run build && node ./build/compression.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "__npminstall_done": false

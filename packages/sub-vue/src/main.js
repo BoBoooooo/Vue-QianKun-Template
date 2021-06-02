@@ -2,7 +2,7 @@ import './public-path';
 import Vue from 'vue';
 import App from './App.vue';
 import routes from './router';
-import { store as commonStore } from 'common';
+import { store as commonStore } from '../../common/src';
 import store from './store';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';

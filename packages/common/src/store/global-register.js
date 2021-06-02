@@ -1,4 +1,5 @@
 
+/* eslint-disable */ 
 /**
  * 
  * @param {vuex实例} store 

@@ -1,10 +1,10 @@
 {
   "eslint.workingDirectories": [
-    "./main",
-    "./sub-vue",
-    "./sub-vue3",
-    "./sub-react",
-    "./common"
+    "./packages/main",
+    "./packages/sub-vue",
+    "./packages/sub-vue3",
+    "./packages/sub-react",
+    "./packages/common"
   ],
   "eslint.enable": true,
   "editor.formatOnSave": false,

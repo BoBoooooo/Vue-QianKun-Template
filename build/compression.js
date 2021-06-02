@@ -50,5 +50,5 @@ function deleteDir(folderPath) {
 }
 
 function dir(url){
-  return `${path.resolve(__dirname, "..")}/${url}/${url}`
+  return `${path.resolve(__dirname, "../packages")}/${url}/${url}`
 }

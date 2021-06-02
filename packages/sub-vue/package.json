@@ -1,7 +1,6 @@
 {
   "name": "sub-vue",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,7 +9,6 @@
     "fix": "eslint --fix --ext .ts,.js,.vue src"
   },
   "dependencies": {
-    "common": "file:../common",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.1",
     "vue": "^2.6.11",
