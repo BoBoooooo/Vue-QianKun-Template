@@ -5,7 +5,18 @@ export default {
     count: 1,
   },
 
-  subscriptions: {},
+  subscriptions: {
+    setup({ dispatch, history }) {
+      history.listen(({ pathname }) => {
+        console.log(pathname);
+        if (pathname === "/hello") {
+          dispatch({
+            type: "add",
+          });
+        }
+      });
+    },
+  },
 
   effects: {},
 
