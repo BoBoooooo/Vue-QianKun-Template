@@ -14,7 +14,7 @@ const Hello = ({ dispatch, hello }) => {
       <p>{hello.count}</p>
       <Button onClick={addCount}>测试数量++</Button>
       <div>
-        <Link to={"/"}>返回</Link>
+        <Link to="/">返回</Link>
       </div>
     </div>
   );

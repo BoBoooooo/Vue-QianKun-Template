@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <div>
-        <Link to={"/"}>返回</Link>
+        <Link to="/">返回</Link>
       </div>
     </div>
   );
