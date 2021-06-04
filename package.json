@@ -1,10 +1,9 @@
 {
   "name": "vue-qiankun-template",
-  "version": "0.0.1",
+  "private": true,
   "author": "BoBo<boboooooo159@gmail.com>",
   "license": "MIT",
   "description": "vue-qiankun-template",
-  "main": "index.js",
   "dependencies": {
     "compressing": "^1.4.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "sub-react",
-  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "start": "CI=true react-app-rewired start",
     "build": "react-app-rewired build",

@@ -1,10 +1,10 @@
 {
   "name": "common",
-  "version": "0.0.1",
+  "private": true,
   "description": "> TODO: description",
   "author": "BoBoooooo <17746714@qq.com>",
   "homepage": "https://github.com/BoBoooooo/Vue-QianKun-Template#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "src/index.js",
   "directories": {
     "lib": "lib",
