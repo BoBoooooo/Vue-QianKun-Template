@@ -6,6 +6,8 @@ import Antd from "./Antd";
 import { connect } from "dva";
 import { Input, Button, message, Row, Col } from "antd";
 
+export const AppContext = React.createContext({ content: "" });
+
 const App = ({ app }) => {
   const changeState = (e) => {
     setName(e.target.value);
@@ -20,28 +22,36 @@ const App = ({ app }) => {
     message.success("更新全局姓名成功");
   };
   return (
-    <div className={styles.App}>
-      <Row>
-        <Col span={8}>
-          <img src={logo} className={styles.logo} alt="logo" />
-          <h2>点击下方切换路由</h2>
-          <Link to={"/hello"}>Hello</Link> |<Link to={"/test"}>Test</Link>
-        </Col>
-        <Col span={8}>
-          <h3>基座中全局姓名为{app.user.name}</h3>
-          <Input
-            style={{ width: "50%", display: "inline-block" }}
-            onChange={changeState}
-          ></Input>
-          <Button type="ghost" onClick={changeGlobalState}>
-            更新全局姓名
-          </Button>
-        </Col>
-        <Col span={8}>
-          <Antd></Antd>
-        </Col>
-      </Row>
-    </div>
+    <>
+      <AppContext.Provider
+        value={{
+          content: "我是AppContext传入的属性" + name,
+        }}
+      >
+        <div className={styles.App}>
+          <Row>
+            <Col span={8}>
+              <img src={logo} className={styles.logo} alt="logo" />
+              <h2>点击下方切换路由</h2>
+              <Link to={"/hello"}>Hello</Link> |<Link to={"/test"}>Test</Link>
+            </Col>
+            <Col span={8}>
+              <h3>基座中全局姓名为{app.user.name}</h3>
+              <Input
+                style={{ width: "50%", display: "inline-block" }}
+                onChange={changeState}
+              ></Input>
+              <Button type="ghost" onClick={changeGlobalState}>
+                更新全局姓名
+              </Button>
+            </Col>
+            <Col span={8}>
+              <Antd></Antd>
+            </Col>
+          </Row>
+        </div>
+      </AppContext.Provider>
+    </>
   );
 };
 
