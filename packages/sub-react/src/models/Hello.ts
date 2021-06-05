@@ -1,5 +1,5 @@
 export default {
-  namespace: "hello",
+  namespace: 'hello',
 
   state: {
     count: 1,
@@ -9,9 +9,9 @@ export default {
     setup({ dispatch, history }) {
       history.listen(({ pathname }) => {
         console.log(pathname);
-        if (pathname === "/hello") {
+        if (pathname === '/hello') {
           dispatch({
-            type: "add",
+            type: 'add',
           });
         }
       });

@@ -1,9 +1,9 @@
 export default {
-  namespace: "app",
+  namespace: 'app',
 
   state: {
     global: {},
-    name: "这是app的model",
+    name: '这是app的model',
     user: {},
   },
 

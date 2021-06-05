@@ -1,8 +1,8 @@
 export default {
-  namespace: "test",
+  namespace: 'test',
 
   state: {
-    name: "这里是Test的state",
+    name: '这里是Test的state',
   },
 
   subscriptions: {},

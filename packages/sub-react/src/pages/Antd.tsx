@@ -1,13 +1,13 @@
-import React, { useState, useContext } from "react";
-import { ConfigProvider, DatePicker, message } from "antd";
-import zhCN from "antd/lib/locale/zh_CN";
-import { AppContext } from "./App";
+import React, { useState, useContext } from 'react';
+import { ConfigProvider, DatePicker, message } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+import { AppContext } from './App';
 
 const Antd = () => {
   const [date, setDate] = useState(null);
   const { content } = useContext(AppContext);
-  const handleChange = (value) => {
-    message.info(`您选择的日期是: ${value ? value : "未选择"}`);
+  const handleChange = value => {
+    message.info(`您选择的日期是: ${value ? value : '未选择'}`);
     setDate(value);
   };
   return (
