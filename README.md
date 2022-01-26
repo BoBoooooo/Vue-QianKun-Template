@@ -13,6 +13,8 @@
 
 # 开始使用
 
+环境 node 14.x
+
 ```javascript
 npm run install
 npm start
